@@ -1,0 +1,437 @@
+<html lang="ka">
+  <head>
+    <link type="image/png" href="images/favicon.jpg" />
+    <meta charset="UTF-8" />
+    <title>Tatia Mamulashvili</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+
+    <style>
+      .painting-title {
+        font-family: main_title;
+        font-size: 36px;
+        text-align: center;
+      }
+      .painting-body {
+        font-family: sans-serif;
+        margin: 0;
+        background: #f9f9f9;
+      }
+
+      .filter-buttons {
+        display: flex;
+        margin-bottom: 20px;
+        justify-content: center;
+        gap: 28px;
+        margin-left: 10px;
+        margin-top: -16px;
+      }
+
+      .filter-buttons button {
+        padding: 10px 20px;
+        margin-right: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        background: #a79c9c;
+        transition: background 0.3s;
+        width: 120px;
+      }
+
+      .filter-buttons button.active {
+        background: #333;
+        color: #fff;
+      }
+
+      .gallery-button {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        justify-content: center;
+        padding-bottom: 40px;
+      }
+
+      .painting {
+        width: 500px;
+        height: auto;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+      }
+
+      .hidden {
+        display: none;
+      }
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.5); /* შავი გამჭვირვალე ფონი */
+        justify-content: center;
+        align-items: center;
+        backdrop-filter: blur(4px); /* ფონის დაბუნდვა */
+      }
+      .modal-content {
+        display: flex;
+        flex-direction: row;
+        background: white;
+        width: 63vw;
+        height: 88vh;
+        box-sizing: border-box;
+        padding: 40px;
+        position: relative;
+        max-width: 100%;
+        max-height: 100%;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+      }
+
+      .modal img {
+        object-fit: contain;
+        border: 1px solid #ccc;
+      }
+
+      .modal-description {
+        flex: 1;
+        font-size: 13px;
+        color: #333;
+        padding-left: 40px;
+        overflow-y: auto;
+        font-family: main_title;
+      }
+
+      .close-btn {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        font-size: 30px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        color: #000;
+        z-index: 10;
+      }
+
+      .close-btn:hover {
+        color: red;
+      }
+
+      @media (max-width: 768px) {
+        .modal-content {
+          flex-direction: column;
+          padding: 20px;
+        }
+        .modal img {
+          width: 100%;
+          height: auto;
+        }
+        .modal-description {
+          padding: 20px 0 0 0;
+        }
+      }
+      .modal-content.vertical {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .modal-content.vertical img {
+        width: 690px;
+        margin-top: 40px;
+        height: 437px;
+      }
+    </style>
+  </head>
+  <body class="painting-body">
+    <div class="nav">
+      <div class="main_title">
+        <a href="index.html"><h1>TATIA&nbsp; MAMULASHVILI</h1></a>
+      </div>
+      <div class="menu">
+        <a href="index.html">HOME</a>
+        <a href="works.html">WORKS</a>
+        <a href="shows.html">SHOWS</a>
+        <a href="bio.html">BIO</a>
+        <a href="contact.html">CONTACT</a>
+      </div>
+    </div>
+
+    <h1 class="painting-title">PAINTINGS</h1>
+    <div class="filter-buttons">
+      <button id="currentBtn" class="active">Current</button>
+      <button id="earlyBtn">Early</button>
+    </div>
+
+    <div class="gallery-button">
+      <!-- Current paintings -->
+      <img
+        src="images/painting/current/(01) 2025.jpeg"
+        class="painting current"
+        alt="Current Painting 1"
+        data-description="
+        <div>
+          <h1>Untitled</h1>
+          <p>2025</p>
+          <p>Acrylic, spray paint, tissue paper, masking tape, fabric, bin liner on wrapping paper
+</p>
+          <p>42 x 59.4 cm</p>
+        </div>
+        "
+      />
+      <img
+        src="images/painting/current/(01,) 2025.jpeg"
+        class="painting current"
+        alt="Current Painting 2"
+        data-description="
+        <div>
+          <h1>Untitled</h1>
+          <p>2025</p>
+          <p>Acrylic, spray paint, knitting thread, fabric, metal wire, bin liner, masking tape on a polythene dust sheet</p>
+          <p>42 x 29.7 cm</p>
+        </div>
+        "
+      />
+      <img
+        src="images/painting/current/02 (2025).jpg"
+        class="painting current"
+        alt="Current Painting 2"
+        data-description="
+        <div>
+          <h1>Untitled</h1>
+          <p>2025</p>
+          <p>Acrylic, spray paint, paper, fabric, thread, plastic, hessian, wood on a Georgian curtain</p>
+          <p>42 x 200 cm</p>
+        </div>
+        "
+      />
+      <img
+        src="images/painting/current/03 (2025).jpeg"
+        class="painting current"
+        alt="Current Painting 2"
+        data-description="
+        <div>
+          <h1>Untitled</h1>
+          <p>2025</p>
+          <p>Acrylic, spray paint, paper, fabric, thread, plastic, hessian, wood on a Georgian curtain</p>
+          <p>42 x 59.4 cm</p>
+        </div>
+        "
+      />
+      <img
+        src="images/painting/current/04 (2025).JPG"
+        class="painting current"
+        alt="Current Painting 2"
+        data-description="
+        <div>
+          <h1>Untitled</h1>
+          <p>2025</p>
+          <p>Installation</p>
+        </div>
+        "
+      />
+      <img
+        src="images/painting/current/05 (2025).jpeg"
+        class="painting current"
+        alt="Current Painting 2"
+        data-description="
+        <div>
+          <h1>Untitled</h1>
+          <p>2025</p>
+          <p>Acrylic, tissue paper, pencil, watercolour, thread, plastic bag on paper</p>
+          <p>42 x 200 cm</p>
+        </div>
+        "
+      />
+      <img
+        src="images/painting/current/06 (2025).JPG"
+        class="painting current"
+        alt="Current Painting 2"
+        data-description="
+        <div>
+          <h1>Untitled</h1>
+          <p>2025</p>
+          <p>Acrylic, spray paint, knitting thread, hessian, etching ink on wrapping paper</p>
+          <p>42 x 59.4 cm</p>
+        </div>
+        "
+      />
+      <img
+        src="images/painting/current/07 (2025).png"
+        class="painting current"
+        alt="Current Painting 2"
+        data-description="
+        <div>
+          <h1>Untitled</h1>
+          <p>2025</p>
+          <p>Acrylic, cardboard, thread, bin liner on canvas</p>
+          <p>42 x 59.4 x 4 cm</p>
+        </div>
+        "
+      />
+
+      <!-- Early paintings -->
+      <img
+        src="images/painting/early/01, (2024) .jpg"
+        class="painting early hidden 1"
+        alt="Early Painting 1"
+        data-layout="vertical"
+        data-description="
+        <div>
+          <h1>TILL THE END</h1>
+          <p>2024</p>
+          <p>Acrylic, pencil, ink pen, charcoal, tissue paper on wrapping paper</p>
+          <p>42 x 60cm </p>
+        </div>
+        "
+      />
+      <img
+        src="images/painting/early/02 (2024).jpg"
+        class="painting early hidden"
+        alt="Early Painting 2"
+        data-description="
+        <div>
+          <h1>Self-Reflection</h1>
+          <p>2024</p>
+          <p>Acrylic, watercolour, pencil, thread, acrylic ink, ink pen, tissue paper on paper</p>
+          <p>29.7 x 42 cm</p>
+        </div>
+        "
+      />
+      <img
+        src="images/painting/early/03 (2024).png"
+        class="painting early hidden"
+        alt="Early Painting 2"
+        data-description="
+        <div>
+          <h1>No Space Anymore</h1>
+          <p>2024</p>
+          <p>Acrylic, watercolour, acrylic ink, pencil, paper, thread, on paper</p>
+          <p>29.7 x 42 cm</p>
+        </div>
+        "
+      />
+      <img
+        src="images/painting/early/04 (2024).jpg"
+        class="painting early hidden"
+        alt="Early Painting 2"
+        data-description="
+        <div>
+          <h1>BASKI</h1>
+          <p>2024</p>
+          <p>Watercolour, pencil, and masking tape on watercolour paper</p>
+          <p>42 x 59.4 cm</p>
+        </div>
+        "
+      />
+      <img
+        src="images/painting/early/05 (2023).jpg"
+        class="painting early hidden"
+        alt="Early Painting 2"
+        data-layout="vertical"
+        data-description="
+        <div>
+          <h1>SELF-SABOTAGE</h1>
+          <p>2024</p>
+          <p>acrylic, ink, pencil on paper</p>
+          <p>59.4 x 84.1 cm</p>
+        </div>
+        "
+      />
+    </div>
+
+    <div class="modal" id="modal">
+      <div class="modal-content">
+        <button class="close-btn" id="closeModal">&times;</button>
+        <img id="modalImage" src="" alt="" />
+        <div class="modal-description" id="modalDescription"></div>
+      </div>
+    </div>
+
+    <footer>
+      <a href="https://www.instagram.com/mamulashvili.tatiaa/" target="_blank"
+        ><img src="images/instagram.png" alt=""
+      /></a>
+      <a href="https://www.behance.net/TaMamulashvili" target="_blank"
+        ><img src="images/behance.png" alt=""
+      /></a>
+      <a
+        href="https://www.linkedin.com/in/tatia-mamulashvili-447469168/"
+        target="_blank"
+        ><img src="images/linkedin.png" alt=""
+      /></a>
+      <p></p>
+      <p>© 2025 Tatia Mamulashvili</p>
+
+      <script>
+        const currentBtn = document.getElementById("currentBtn");
+        const earlyBtn = document.getElementById("earlyBtn");
+        const currentPaintings = document.querySelectorAll(".painting.current");
+        const earlyPaintings = document.querySelectorAll(".painting.early");
+
+        function showCategory(category) {
+          if (category === "current") {
+            currentPaintings.forEach((p) => p.classList.remove("hidden"));
+            earlyPaintings.forEach((p) => p.classList.add("hidden"));
+            currentBtn.classList.add("active");
+            earlyBtn.classList.remove("active");
+          } else if (category === "early") {
+            earlyPaintings.forEach((p) => p.classList.remove("hidden"));
+            currentPaintings.forEach((p) => p.classList.add("hidden"));
+            earlyBtn.classList.add("active");
+            currentBtn.classList.remove("active");
+          }
+        }
+
+        currentBtn.addEventListener("click", () => showCategory("current"));
+        earlyBtn.addEventListener("click", () => showCategory("early"));
+
+        // სტარტში აჩვენე current
+        window.addEventListener("DOMContentLoaded", () => {
+          showCategory("current");
+        });
+        const modal = document.getElementById("modal");
+        const modalImage = document.getElementById("modalImage");
+        const modalDescription = document.getElementById("modalDescription");
+        const closeModal = document.getElementById("closeModal");
+
+        document.querySelectorAll(".painting").forEach((painting) => {
+          painting.addEventListener("click", () => {
+            modal.style.display = "flex";
+            modalImage.src = painting.src;
+
+            // მოდიფიცირებული ეს ნაწილი ↓
+            const description =
+              painting.getAttribute("data-description") ||
+              "აღწერა არ არის მითითებული";
+            modalDescription.innerHTML = description;
+
+            // layout-ის მიხედვით შეცვალე კლასი
+            const layout = painting.getAttribute("data-layout");
+            const modalContent = document.querySelector(".modal-content");
+
+            if (layout === "vertical") {
+              modalContent.classList.add("vertical");
+            } else {
+              modalContent.classList.remove("vertical");
+            }
+          });
+        });
+
+        closeModal.addEventListener("click", () => {
+          modal.style.display = "none";
+        });
+
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") {
+            modal.style.display = "none";
+          }
+        });
+      </script>
+    </footer>
+  </body>
+</html>
