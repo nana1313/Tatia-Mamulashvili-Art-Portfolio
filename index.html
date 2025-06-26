@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ka">
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="images/favicon.png" type="image/png" />
     <meta charset="UTF-8" />
     <title>Tatia Mamulashvili</title>
@@ -22,7 +23,7 @@
         z-index: 1000;
       }
 
-      .slider {
+      /* .slider {
         position: fixed;
         top: 60px;
         left: 0;
@@ -43,13 +44,28 @@
         height: 100%;
         object-fit: cover;
         flex-shrink: 0;
-      }
+      } */
 
-      body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background: #000;
-      }
+      * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header, footer {
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  padding: 1rem;
+}
+.full-image {
+  width: 100vw;
+  height: 100vh;
+  background-image: url(images/main.jpg); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
     </style>
   </head>
   <body>
@@ -65,7 +81,9 @@
         <a href="contact.html">CONTACT</a>
       </div>
     </div>
-    <img class="main-img" src="images/main.jpg" />
+    <main>
+      <section class="full-image"></section>
+    </main>
     <footer>
       <a href="https://www.instagram.com/mamulashvili.tatiaa/" target="_blank"
         ><img src="images/instagram.png" alt=""
