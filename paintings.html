@@ -124,8 +124,8 @@
 
       .close-btn {
         position: absolute;
-        top: 10px;
-        right: 12px;
+        top: -12px;
+        right: -14px;
         font-size: 24px;
         background: none;
         border: none;
@@ -181,12 +181,14 @@
           width: 90vw;
           max-height: 80vh;
           padding: 16px;
+          flex-direction: column;
         }
         .modal img {
           max-height: 50vh;
         }
 
         .modal-description {
+          padding-top: 40px;
           font-size: 13px;
           max-height: 25vh;
           overflow-y: auto;
@@ -197,6 +199,10 @@
           height: auto;
           margin-top: 10px;
           max-height: 50vh;
+        }
+        .close-btn:hover {
+          color: red;
+          opacity: 0;
         }
       }
     </style>
