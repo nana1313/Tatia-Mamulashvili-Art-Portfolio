@@ -8,48 +8,11 @@
     <link rel="stylesheet" href="style.css" />
     <script defer src="script.js"></script>
     <style>
-      html,
-      body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-      body {
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-      }
       main {
         flex: 1 1 auto; /* მთავარი სექცია დაიკავებს დარჩენილ სივრცეს */
         display: flex; /* optional, თუ გინდა შიგნით ელემენტები ცენტრში */
       }
-      .nav {
-        position: relative;
-        width: 100%;
-        height: 60px;
-        background-color: #ffffff;
-        color: white;
-        display: flex;
-        align-items: center;
-        padding: 0 20px;
-        font-size: 20px;
-        z-index: 1000;
-        flex-shrink: 0;
-      }
 
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      header,
-      footer {
-        background-color: #ffffff;
-        color: rgb(0, 0, 0);
-        text-align: center;
-        padding: 1rem;
-      }
       .full-image {
         flex-grow: 1;
         background-image: url(images/main.jpg);
@@ -58,84 +21,6 @@
         background-repeat: no-repeat;
         width: 100%;
         height: 100%; /* აითვისებს main-ის სიმაღლეს */
-      }
-
-      .menu.active {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        width: 100%;
-        background-color: #333; /* სურვილის მიხედვით */
-        padding: 10px 0;
-      }
-      .burger {
-        display: none;
-        font-size: 28px;
-        cursor: pointer;
-        color: black;
-        z-index: 1100;
-      }
-      @media (max-width: 768px) {
-        .full-image {
-          height: auto; /* უნდა იყოს ფლექსის სიგრძე */
-          min-height: calc(
-            100vh - 60px - 50px
-          ); /* 50px შეიძლება იყოს footer-ის სიმაღლე */
-        }
-        .menu {
-          display: none;
-          flex-direction: column;
-          position: absolute;
-          top: 60px; /* ბურგერის ქვეშ გამოჩნდება */
-          right: 0;
-          background-color: #222;
-          padding: 12px 20px;
-          border-radius: 8px;
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-          z-index: 1000;
-          min-width: 150px;
-          opacity: 0.7;
-        }
-
-        .menu.active {
-          display: flex;
-          align-items: center;
-        }
-
-        .menu a {
-          color: white;
-          text-decoration: none;
-          padding: 10px 0;
-          font-size: 16px;
-        }
-        .menu a:hover {
-          color: #ddd;
-        }
-
-        .burger {
-          display: block;
-          font-size: 28px;
-          cursor: pointer;
-          color: black;
-          z-index: 1100;
-          margin-left: auto;
-        }
-
-        .main_title h1 {
-          font-size: 18px;
-        }
-
-        .full-image {
-          height: 70vh;
-        }
-
-        footer img {
-          width: 20px;
-          height: 20px;
-        }
-        .main_title {
-          flex-grow: 1;
-        }
       }
     </style>
   </head>

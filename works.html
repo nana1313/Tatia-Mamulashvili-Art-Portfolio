@@ -1,17 +1,59 @@
 <!DOCTYPE html>
 <html lang="ka">
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="images/favicon.png" type="image/png" />
     <meta charset="UTF-8" />
     <title>WORKS</title>
     <link rel="stylesheet" href="style.css" />
+    <style>
+      .works_items {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        height: 100vh; /* ზუსტად ეკრანის სიმაღლე */
+
+        background-image: url(images/works.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+      .works_title {
+        color: black;
+        font-family: main_title;
+      }
+      .works_iitems_div {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .works_item1,
+      .works_item2 {
+        background-color: black;
+        color: white;
+        font-family: main_title;
+        width: 227px;
+        border-radius: 2px;
+        opacity: 0.7;
+      }
+      .works_item1:hover,
+      .works_item2:hover {
+        background-color: gray;
+        opacity: 0.6;
+        color: black;
+        font-style: bold;
+      }
+    </style>
   </head>
   <body>
     <div class="nav">
       <div class="main_title">
         <a href="index.html"><h1>TATIA&nbsp; MAMULASHVILI</h1></a>
       </div>
-      <div class="menu">
+      <div class="burger" onclick="toggleMenu()">☰</div>
+      <div class="menu" id="menu">
         <a href="index.html">HOME</a>
         <a href="works.html">WORKS</a>
         <a href="shows.html">SHOWS</a>
@@ -47,5 +89,11 @@
       <p></p>
       <p>© 2025 Tatia Mamulashvili</p>
     </footer>
+    <script>
+      function toggleMenu() {
+        const menu = document.getElementById("menu");
+        menu.classList.toggle("active");
+      }
+    </script>
   </body>
 </html>

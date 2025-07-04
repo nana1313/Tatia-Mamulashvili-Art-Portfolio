@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ka">
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="images/favicon.png" type="image/png" />
     <meta charset="UTF-8" />
     <title>CONTACT</title>
@@ -45,9 +46,29 @@
         background-color: #000000;
         font-family: main_title;
       }
-      .submit{
+      .submit {
         display: flex;
         justify-content: center;
+      }
+      @media (max-width: 768px) {
+        .page_title {
+          font-size: 19px;
+          padding-top: 30px;
+        }
+        .social_media img {
+          width: 30px;
+          height: 30px;
+        }
+        .social_media {
+          padding-top: 25px;
+        }
+        .contact-form {
+          align-items: center;
+        }
+        .contact-form input,
+        .contact-form textarea {
+          width: 90%;
+        }
       }
     </style>
   </head>
@@ -56,7 +77,8 @@
       <div class="main_title">
         <a href="index.html"><h1>TATIA&nbsp; MAMULASHVILI</h1></a>
       </div>
-      <div class="menu">
+      <div class="burger" onclick="toggleMenu()">☰</div>
+      <div class="menu" id="menu">
         <a href="index.html">HOME</a>
         <a href="works.html">WORKS</a>
         <a href="shows.html">SHOWS</a>
@@ -64,45 +86,49 @@
         <a href="contact.html">CONTACT</a>
       </div>
     </div>
-    <h1 class="page_title">CONTACT</h1>
-    <div class="social_media">
-      <div>
-        <a href="https://www.instagram.com/mamulashvili.tatiaa/" target="_blank"
-          ><img src="images/instagram.png" alt=""
-        /></a>
+    <main>
+      <h1 class="page_title">CONTACT</h1>
+      <div class="social_media">
+        <div>
+          <a
+            href="https://www.instagram.com/mamulashvili.tatiaa/"
+            target="_blank"
+            ><img src="images/instagram.png" alt=""
+          /></a>
+        </div>
+        <div>
+          <a
+            href="https://www.linkedin.com/in/tatia-mamulashvili-447469168/"
+            target="_blank"
+            ><img src="images/linkedin.png" alt=""
+          /></a>
+        </div>
+        <div>
+          <a href="https://www.behance.net/TaMamulashvili" target="_blank"
+            ><img src="images/behance.png" alt=""
+          /></a>
+        </div>
       </div>
-      <div>
-        <a
-          href="https://www.linkedin.com/in/tatia-mamulashvili-447469168/"
-          target="_blank"
-          ><img src="images/linkedin.png" alt=""
-        /></a>
-      </div>
-      <div>
-        <a href="https://www.behance.net/TaMamulashvili" target="_blank"
-          ><img src="images/behance.png" alt=""
-        /></a>
-      </div>
-    </div>
-    <section class="contact">
-      <form
-        action="https://formspree.io/f/mldnopbj"
-        method="POST"
-        class="contact-form"
-      >
-        <label for="name" class="form-titles">Full Name</label>
-        <input type="text" id="name" name="name" required />
+      <section class="contact">
+        <form
+          action="https://formspree.io/f/mldnopbj"
+          method="POST"
+          class="contact-form"
+        >
+          <label for="name" class="form-titles">Full Name</label>
+          <input type="text" id="name" name="name" required />
 
-        <label for="email" class="form-titles">Email</label>
-        <input type="email" id="email" name="email" required />
+          <label for="email" class="form-titles">Email</label>
+          <input type="email" id="email" name="email" required />
 
-        <label for="message" class="form-titles">Message</label>
-        <textarea id="message" name="message" rows="4" required></textarea>
-<div class="submit"><button type="submit" class="form-button">Submit</button></div>
-        
-      </form>
-    </section>
-
+          <label for="message" class="form-titles">Message</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+          <div class="submit">
+            <button type="submit" class="form-button">Submit</button>
+          </div>
+        </form>
+      </section>
+    </main>
     <footer>
       <a href="https://www.instagram.com/mamulashvili.tatiaa/" target="_blank"
         ><img src="images/instagram.png" alt=""
@@ -118,5 +144,11 @@
       <p></p>
       <p>© 2025 Tatia Mamulashvili</p>
     </footer>
+    <script>
+      function toggleMenu() {
+        const menu = document.getElementById("menu");
+        menu.classList.toggle("active");
+      }
+    </script>
   </body>
 </html>

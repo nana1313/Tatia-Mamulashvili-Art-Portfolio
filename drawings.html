@@ -1,17 +1,73 @@
 <!DOCTYPE html>
 <html lang="ka">
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="images/favicon.png" type="image/png" />
     <meta charset="UTF-8" />
     <title>GALLERY</title>
     <link rel="stylesheet" href="style.css" />
+    <style>
+      .page_p {
+        color: black;
+        text-align: center;
+        font-size: 18px;
+      }
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        padding: 20px;
+      }
+      .gallery img {
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+      }
+      .gallery img:hover {
+        transform: scale(1.05);
+      }
+      @media (max-width: 900px) {
+        .gallery {
+          grid-template-columns: repeat(2, 1fr);
+          padding: 15px;
+          gap: 15px;
+        }
+        .page_p {
+          font-size: 16px;
+          padding: 0 10px;
+        }
+        .page_title {
+          font-size: 22px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .gallery {
+          grid-template-columns: 1fr;
+          padding: 10px;
+          gap: 10px;
+        }
+        .page_p {
+          font-size: 14px;
+          padding: 0 8px;
+        }
+        .gallery img:hover {
+          transform: none; /* მობილურზე არ გავზარდოთ */
+        }
+        .page_title {
+          font-size: 22px;
+        }
+      }
+    </style>
   </head>
   <body>
     <div class="nav">
       <div class="main_title">
         <a href="index.html"><h1>TATIA&nbsp; MAMULASHVILI</h1></a>
       </div>
-      <div class="menu">
+      <div class="burger" onclick="toggleMenu()">☰</div>
+      <div class="menu" id="menu">
         <a href="index.html">HOME</a>
         <a href="works.html">WORKS</a>
         <a href="shows.html">SHOWS</a>
@@ -49,5 +105,11 @@
       <p></p>
       <p>© 2025 Tatia Mamulashvili</p>
     </footer>
+    <script>
+      function toggleMenu() {
+        const menu = document.getElementById("menu");
+        menu.classList.toggle("active");
+      }
+    </script>
   </body>
 </html>
