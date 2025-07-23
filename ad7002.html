@@ -1,17 +1,83 @@
 <!DOCTYPE html>
 <html lang="ka">
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="images/favicon.png" type="image/png" />
     <meta charset="UTF-8" />
     <title>GALLERY</title>
     <link rel="stylesheet" href="style.css" />
+    <style>
+      .ad {
+        display: flex;
+        justify-content: flex-start;
+        gap: 15px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        flex-direction: column;
+        text-align: center;
+      }
+      .ad-title {
+        font-family: main_title;
+        font-size: 26px;
+      }
+      .ad-desctiption {
+        font-family: main_title;
+      }
+      .ad-desctiption1 {
+        font-family: main_title;
+        font-size: 16px;
+      }
+      .ad-location {
+        font-family: main_title;
+        font-size: 14px;
+      }
+      .ad-paints {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        max-width: auto;
+        margin: 0 auto;
+        padding-left: 57px;
+        padding-right: 57px;
+      }
+      .ad-paints img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      .ad-item1 {
+        grid-column: span 2;
+      }
+      @media (max-width: 768px) {
+        .ad {
+          padding-top: 20px;
+        }
+        .ad-title {
+          font-size: 18px;
+          text-align: center;
+          padding-left: 10px;
+          padding-right: 10px;
+        }
+        .ad-desctiption1 {
+          font-size: 14px;
+          text-align: center;
+          padding-left: 10px;
+          padding-right: 10px;
+        }
+        .ad-paints {
+          padding-left: 15px;
+          padding-right: 15px;
+        }
+      }
+    </style>
   </head>
   <body>
     <div class="nav">
       <div class="main_title">
         <a href="index.html"><h1>TATIA&nbsp; MAMULASHVILI</h1></a>
       </div>
-      <div class="menu">
+      <div class="burger" onclick="toggleMenu()">☰</div>
+      <div class="menu" id="menu">
         <a href="index.html">HOME</a>
         <a href="works.html">WORKS</a>
         <a href="shows.html">SHOWS</a>
@@ -58,5 +124,11 @@
       <p></p>
       <p>© 2025 Tatia Mamulashvili</p>
     </footer>
+    <script>
+      function toggleMenu() {
+        const menu = document.getElementById("menu");
+        menu.classList.toggle("active");
+      }
+    </script>
   </body>
 </html>

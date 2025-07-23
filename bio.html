@@ -1,17 +1,42 @@
 <!DOCTYPE html>
 <html lang="ka">
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="images/favicon.png" type="image/png" />
     <meta charset="UTF-8" />
     <title>BIO</title>
     <link rel="stylesheet" href="style.css" />
+    <style>
+      @media screen and (max-width: 768px) {
+        .page_title {
+          font-size: 23px;
+          padding-bottom: 13px;
+        }
+        .about img {
+          width: 100%;
+          height: 295px;
+          padding-left: 10px;
+          padding-right: 10px;
+        }
+        .about p {
+          width: 100%;
+          text-align: center;
+          font-size: 13px;
+        }
+        .about {
+          gap: 13px;
+          padding-bottom: 35px;
+        }
+      }
+    </style>
   </head>
   <body class="bio">
     <div class="nav">
       <div class="main_title">
         <a href="index.html"><h1>TATIA&nbsp; MAMULASHVILI</h1></a>
       </div>
-      <div class="menu">
+      <div class="burger" onclick="toggleMenu()">☰</div>
+      <div class="menu" id="menu">
         <a href="index.html">HOME</a>
         <a href="works.html">WORKS</a>
         <a href="shows.html">SHOWS</a>
@@ -81,5 +106,11 @@
       <p></p>
       <p>© 2025 Tatia Mamulashvili</p>
     </footer>
+    <script>
+      function toggleMenu() {
+        const menu = document.getElementById("menu");
+        menu.classList.toggle("active");
+      }
+    </script>
   </body>
 </html>

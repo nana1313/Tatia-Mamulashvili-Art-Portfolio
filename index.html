@@ -1,71 +1,27 @@
 <!DOCTYPE html>
 <html lang="ka">
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="images/favicon.png" type="image/png" />
     <meta charset="UTF-8" />
     <title>Tatia Mamulashvili</title>
     <link rel="stylesheet" href="style.css" />
     <script defer src="script.js"></script>
     <style>
-      nav {
+      main {
+        flex: 1 1 auto; /* მთავარი სექცია დაიკავებს დარჩენილ სივრცეს */
+        display: flex; /* optional, თუ გინდა შიგნით ელემენტები ცენტრში */
+      }
+
+      .full-image {
+        flex-grow: 1;
+        background-image: url(images/main.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
         width: 100%;
-        height: 60px;
-        background-color: #333;
-        color: white;
-        display: flex;
-        align-items: center;
-        padding: 0 20px;
-        font-size: 20px;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 1000;
+        height: 100%; /* აითვისებს main-ის სიმაღლეს */
       }
-
-      /* .slider {
-        position: fixed;
-        top: 60px;
-        left: 0;
-        width: 100vw;
-        height: calc(100vh - 60px);
-        overflow: hidden;
-      }
-
-      .slides {
-        display: flex;
-        height: 100%;
-        width: calc(100vw * 6); /* 5 ფოტოს + 1 კლონი = 6 */
-        /*transition: transform 0.5s ease-in-out;
-      }
-
-      .slides img {
-        width: 100vw;
-        height: 100%;
-        object-fit: cover;
-        flex-shrink: 0;
-      } */
-
-      * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-header, footer {
-  background-color: #ffffff;
-  color: rgb(0, 0, 0);
-  text-align: center;
-  padding: 1rem;
-}
-.full-image {
-  width: 100vw;
-  height: 100vh;
-  background-image: url(images/main.jpg); 
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
     </style>
   </head>
   <body>
@@ -73,7 +29,8 @@ header, footer {
       <div class="main_title">
         <a href="index.html"><h1>TATIA&nbsp; MAMULASHVILI</h1></a>
       </div>
-      <div class="menu">
+      <div class="burger" onclick="toggleMenu()">☰</div>
+      <div class="menu" id="menu">
         <a href="index.html">HOME</a>
         <a href="works.html">WORKS</a>
         <a href="shows.html">SHOWS</a>
@@ -99,5 +56,11 @@ header, footer {
       <p></p>
       <p>© 2025 Tatia Mamulashvili</p>
     </footer>
+    <script>
+      function toggleMenu() {
+        const menu = document.getElementById("menu");
+        menu.classList.toggle("active");
+      }
+    </script>
   </body>
 </html>

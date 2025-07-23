@@ -1,17 +1,84 @@
 <!DOCTYPE html>
 <html lang="ka">
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="images/favicon.png" type="image/png" />
     <meta charset="UTF-8" />
     <title>SHOWS</title>
     <link rel="stylesheet" href="style.css" />
+    <style>
+      .shows {
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        height: 703px;
+        align-items: center;
+        gap: 50px;
+      }
+      .shows-list {
+        text-align: right;
+      }
+      .shows-list h3 {
+        font-family: main_title;
+        font-size: 25px;
+      }
+      .shows-list li {
+        list-style-type: none;
+        font-size: 20px;
+        cursor: pointer;
+        color: black;
+        text-decoration: underline;
+      }
+      .shows-list a {
+        text-decoration: none;
+      }
+      .shows-img img {
+        width: 470px;
+        height: 620px;
+      }
+      @media (max-width: 900px) {
+        .shows {
+          flex-direction: column;
+          height: auto; /* სიმაღლე ავტომატურად */
+          gap: 20px;
+          padding: 10px;
+        }
+        .shows-list {
+          text-align: center;
+          display: flex;
+          gap: 10px;
+          flex-direction: column;
+        }
+        .shows-list h3 {
+          font-size: 22px;
+        }
+        .shows-list li {
+          font-size: 18px;
+        }
+        .shows-img img {
+          width: 100%;
+          height: auto;
+          max-width: 470px; /* მაქსიმალური სიგანე */
+        }
+      }
+      @media (max-width: 480px) {
+        .shows-list h3 {
+          font-size: 18px;
+        }
+        .shows-list li {
+          font-size: 16px;
+        }
+      }
+    </style>
   </head>
   <body>
     <div class="nav">
       <div class="main_title">
         <a href="index.html"><h1>TATIA&nbsp; MAMULASHVILI</h1></a>
       </div>
-      <div class="menu">
+      <div class="burger" onclick="toggleMenu()">☰</div>
+      <div class="menu" id="menu">
         <a href="index.html">HOME</a>
         <a href="works.html">WORKS</a>
         <a href="shows.html">SHOWS</a>
@@ -43,5 +110,11 @@
       <p></p>
       <p>© 2025 Tatia Mamulashvili</p>
     </footer>
+    <script>
+      function toggleMenu() {
+        const menu = document.getElementById("menu");
+        menu.classList.toggle("active");
+      }
+    </script>
   </body>
 </html>
