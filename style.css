@@ -2,11 +2,75 @@
   font-family: "main_title";
   src: url(fonts/Michroma-Regular.ttf);
 }
+@font-face {
+  font-family: "BIO";
+  src: url(fonts/Newsreader_9pt-Regular.ttf);
+}
+@font-face {
+  font-family: "BIO-BOLD";
+  src: url(fonts/Newsreader_9pt-Bold.ttf);
+}
+@font-face {
+  font-family: NAV;
+  src: url(fonts/NAV.ttf);
+}
+@font-face {
+  font-family: "futura";
+  src: url(fonts/futura.ttf);
+}
+@font-face {
+  font-family: "futura-bold";
+  src: url(fonts/FuturaCyrillicBook.ttf);
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  color: black;
+  text-decoration: none;
+  font-family: BIO;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+  position: absolute;
+  top: 100%; /* პირდაპირ parent-ის ქვემოთ */
+  left: -55px;
+  background: white;
+  padding: 10px 0;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  display: none;
+  min-width: 217px;
+  text-align: right;
+  z-index: 1000;
+  opacity: 0.75;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: black;
+  white-space: nowrap;
+}
+
+/* Show dropdown on hover parent OR menu itself */
+.dropdown:hover .dropdown-menu,
+.dropdown-menu:hover {
+  display: block;
+}
+
+/* Optional: hover effect on links */
+/* .dropdown-menu a:hover {
+  background: #f2f2f2;
+} */
 
 body {
   margin: 0;
   font-family: "Segoe UI", sans-serif;
-  background: #e2e2e2;
+  background: white;
   color: #333;
   overflow-x: hidden;
 }
@@ -21,7 +85,6 @@ main {
   padding-left: 60px;
   padding-right: 60px;
   display: flex;
-  background-color: #e2e2e2;
   color: white;
   align-items: center;
   justify-content: space-between;
@@ -34,22 +97,23 @@ main {
 .main_title a {
   color: black;
   text-decoration: none;
-  font-family: main_title;
+  font-family: futura;
 }
 .main_title h1 {
-  font-size: 20px;
+  font-size: 32px;
+  letter-spacing: 9px;
 }
 .menu a {
   color: black;
   text-decoration: none;
-  font-family: main_title;
-  font-size: 12px;
+  font-family: BIO;
+  font-size: 18px;
 }
-.menu a:hover {
+/* .menu a:hover {
   color: gray;
-}
+} */
 .menu {
-  gap: 90px;
+  gap: 29px;
   display: flex;
 }
 nav a:hover {
@@ -74,30 +138,48 @@ nav a:hover {
   color: black;
   font-family: menu;
   text-align: center;
-  font-size: 30px;
-  font-family: main_title;
+  font-size: 25px;
+  font-family: BIO-BOLD;
   padding-top: 30px;
+  margin-left: 70px;
+  text-align: left;
+  letter-spacing: 0.3px;
 }
 
 .about {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  align-items: flex-start;
   justify-content: center;
   padding-bottom: 70px;
+  margin-top: 110px;
 }
 .about img {
-  width: 885px;
-  height: 568px;
+  width: 100%;
+  height: 100%;
 }
 .about p {
-  width: 891px;
-  font-family: main_title;
+  font-family: BIO;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 26px;
+  margin-left: 70px;
+  margin-right: 56px;
+  margin-top: 30px;
+}
+.bio-exhibitions {
+  font-family: BIO-BOLD;
+  font-size: 22px;
+  letter-spacing: 0.3px;
+  font-weight: 700;
 }
 .bio {
   position: relative;
   margin: 0;
   padding: 0;
+  background-color: white;
 }
 */ .about,
 .contact {
@@ -106,17 +188,31 @@ nav a:hover {
   margin: auto;
   line-height: 1.6;
 }
+.contact-left {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.page_title_contact {
+  text-align: center;
+  font-family: futura;
+  letter-spacing: 4px;
+  margin-top: -80px;
+}
 .social_media {
+  padding-top: 50px;
   display: flex;
   gap: 40px;
   justify-content: center;
-  padding-top: 30px;
 }
 .social_media img {
   width: 40px;
   height: 40px;
 }
-
+#message {
+  resize: none;
+}
 form input,
 form textarea {
   width: 100%;
@@ -135,9 +231,9 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+/* button:hover {
   background-color: #ffa500;
-}
+} */
 
 footer img {
   width: 30px;
@@ -146,11 +242,17 @@ footer {
   display: flex;
   text-align: center;
   min-height: 55px;
-  background-color: #e2e2e2;
   border-top: 1px solid black;
   align-items: center;
   justify-content: center;
   gap: 20px;
+  border-top: none;
+}
+.home-footer {
+  margin-top: 1770px;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 172px;
 }
 html,
 body {
@@ -167,14 +269,15 @@ body {
   position: relative;
   width: 100%;
   height: 60px;
-  background-color: #ffffff;
   color: white;
   display: flex;
   align-items: center;
-  padding: 0 20px;
+  padding: 0px 80px;
   font-size: 20px;
   z-index: 1000;
   flex-shrink: 0;
+  border-bottom: none;
+  padding-top: 74px;
 }
 
 * {
@@ -182,13 +285,24 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
-
+/* .home-page {
+  display: flex;
+  flex-direction: row;
+} */
 header,
 footer {
-  background-color: #ffffff;
-  color: rgb(0, 0, 0);
-  text-align: center;
-  padding: 1rem;
+  background: transparent;
+  border: none;
+}
+header {
+  background: transparent;
+  border-bottom: none;
+  box-shadow: none;
+  position: absolute; /* გადაატარებს ფოტოს ზემოდან */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
 }
 .menu.active {
   display: flex;

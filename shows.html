@@ -15,12 +15,13 @@
         height: 703px;
         align-items: center;
         gap: 50px;
+        padding-top: 165px;
       }
       .shows-list {
         text-align: right;
       }
       .shows-list h3 {
-        font-family: main_title;
+        font-family: futura;
         font-size: 25px;
       }
       .shows-list li {
@@ -28,6 +29,9 @@
         font-size: 20px;
         cursor: pointer;
         color: black;
+        font-family: futura;
+      }
+      .shows-list li:hover {
         text-decoration: underline;
       }
       .shows-list a {
@@ -75,40 +79,60 @@
   <body>
     <div class="nav">
       <div class="main_title">
-        <a href="index.html"><h1>TATIA&nbsp; MAMULASHVILI</h1></a>
+        <a href="index.html"
+          ><h1 style="font-size: 32px; letter-spacing: 9px">
+            TATIA&nbsp; <br />MAMULASHVILI
+          </h1></a
+        >
       </div>
       <div class="burger" onclick="toggleMenu()">☰</div>
       <div class="menu" id="menu">
-        <a href="index.html">HOME</a>
-        <a href="works.html">WORKS</a>
-        <a href="shows.html">SHOWS</a>
-        <a href="bio.html">BIO</a>
-        <a href="contact.html">CONTACT</a>
+        <a href="index.html">Home</a>
+        <div
+          class="dropdown"
+          style="
+            color: black;
+            text-decoration: none;
+            font-family: BIO;
+            font-size: 18px;
+          "
+        >
+          Selected Artworks
+          <div class="dropdown-menu">
+            <a href="archive.html">Archive</a>
+            <a href="drawings.html">Drawings</a>
+          </div>
+        </div>
+        <a href="shows.html" style="border-bottom: 1.5px solid black">Shows</a>
+        <a href="bio.html">About</a>
+        <a href="contact.html">Contact</a>
       </div>
     </div>
     <div class="shows">
       <div class="shows-list">
-        <h3>SHOWS</h3>
+        <h3>Shows</h3>
         <ul>
+          <a href="mafa.html"><li>MAFA Postgrad Show</li></a>
           <a href="ad7002.html"><li>AD7002</li></a>
         </ul>
       </div>
-      <div class="shows-img"><img src="images/shows.jpg" alt="" /></div>
+      <div class="shows-img"><img src="images/tatia-eyes.jpg" alt="" /></div>
     </div>
-    <footer>
-      <a href="https://www.instagram.com/mamulashvili.tatiaa/" target="_blank"
-        ><img src="images/instagram.png" alt=""
-      /></a>
-      <a href="https://www.behance.net/TaMamulashvili" target="_blank"
-        ><img src="images/behance.png" alt=""
-      /></a>
-      <a
-        href="https://www.linkedin.com/in/tatia-mamulashvili-447469168/"
-        target="_blank"
-        ><img src="images/linkedin.png" alt=""
-      /></a>
-      <p></p>
-      <p>© 2025 Tatia Mamulashvili</p>
+    <footer class="home-footer" style="margin-top: 200px">
+      <div>
+        <a href="https://www.instagram.com/mamulashvili.tatiaa/" target="_blank"
+          ><img src="images/instagram.png" alt=""
+        /></a>
+        <a href="https://www.behance.net/TaMamulashvili" target="_blank"
+          ><img src="images/behance.png" alt=""
+        /></a>
+        <a
+          href="https://www.linkedin.com/in/tatia-mamulashvili-447469168/"
+          target="_blank"
+          ><img src="images/linkedin.png" alt=""
+        /></a>
+      </div>
+      <div><p>© 2025 Tatia Mamulashvili</p></div>
     </footer>
     <script>
       function toggleMenu() {

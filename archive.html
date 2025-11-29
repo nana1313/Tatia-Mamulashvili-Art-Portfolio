@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="ka">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="images/favicon.png" type="image/png" />
+    <meta charset="UTF-8" />
+    <title>Tatia Mamulashvili</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <style>
+    .artworks-title {
+      font-family: futura-bold;
+      font-size: 23px;
+      padding-top: 95px;
+      padding-left: 80px;
+      padding-bottom: 16px;
+      letter-spacing: 2px;
+    }
+    .line {
+      width: 1535px;
+      height: 3px;
+      background-color: #d7d9db;
+      margin: 0 auto;
+      padding-top: 3px;
+    }
+    .artworks-2025-title {
+      font-size: 23px;
+      font-family: futura-bold;
+      padding-left: 80px;
+      padding-top: 13px;
+    }
+    .artworks-2025-main-img-horizontal {
+      width: 670px;
+      cursor: pointer;
+    }
+    .artworks-2025-main-img-vertical {
+      width: 480px;
+    }
+    .artworks-2025-main-img-horizontal:hover + .artwork-name-out {
+      text-decoration: underline;
+    }
+    .artworks-2025-main-img-vertical:hover + .artwork-name-out {
+      text-decoration: underline;
+    }
+    .artworks-2025 {
+      padding-left: 80px;
+      padding-top: 85px;
+      padding-right: 80px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* 2 სვეტი */
+      gap: 82px; /* მანძილი ფოტოებს შორის */
+      /* max-width: 1200px; */
+      margin: 0 auto;
+      justify-items: center;
+      padding-bottom: 130px;
+    }
+    .artworks-2024 {
+      padding-left: 80px;
+      padding-top: 145px;
+      padding-right: 80px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* 2 სვეტი */
+      column-gap: 262px;
+      row-gap: 99px; /* მანძილი ფოტოებს შორის */
+      /* max-width: 1200px; */
+      margin: 0 auto;
+      justify-items: center;
+      padding-bottom: 130px;
+    }
+    .artworks-2025-items {
+      width: 670px;
+    }
+    .artworks-2025-items-ver {
+      width: 480px;
+    }
+    .artwork-name-out {
+      font-family: BIO;
+      font-size: 19px;
+      cursor: pointer;
+      padding-top: 10px;
+    }
+    .artwork-name-out:hover {
+      text-decoration: underline;
+    }
+    .artwork-year-out {
+      font-family: futura-bold;
+      font-size: 17px;
+    }
+
+    /* modali */
+    .image-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+    }
+    .modal-panel {
+      position: relative;
+      z-index: 2;
+      max-width: 100%;
+      width: 100%;
+      height: 100%;
+      background: #fff;
+      /* padding: 28px; */
+      /* border-radius: 8px; */
+      display: flex;
+      flex-direction: row;
+      gap: 14px;
+      align-items: center;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+    .modal-meta {
+      text-align: center;
+      margin-bottom: 6px;
+    }
+    #modalTitle {
+      font-family: BIO;
+      font-size: 20px;
+      margin: 0;
+    }
+    #modalYear {
+      font-family: futura-bold;
+      font-size: 14px;
+      margin: 0;
+      color: #666;
+    }
+
+    .modal-image-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      flex: 1 1 auto;
+      height: 100%;
+      padding: 55px;
+    }
+    .modal-image-wrap img {
+      max-width: 100%;
+      object-fit: contain;
+      display: block;
+      max-height: 100%;
+    }
+
+    .modal-thumbs {
+          display: flex;
+    gap: 5px;
+    overflow-x: auto;
+    padding-top: 10px;
+    width: 400px;
+    flex-wrap: wrap;
+    /* padding: 40px; */
+    justify-content: flex-start;
+    padding-top: 70px;
+    }
+    .modal-thumbs img {
+      width: 84px;
+      height: 64px;
+      object-fit: cover;
+      cursor: pointer;
+      border: 2px solid transparent;
+      border-radius: 4px;
+    }
+    .modal-thumbs img.active {
+      border-color: grey;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      background: transparent;
+      border: none;
+      font-size: 28px;
+      cursor: pointer;
+      z-index: 3;
+    }
+    .modal-close:focus {
+      outline: none;
+      box-shadow: none;
+    }
+    .nav-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: transparent;
+      border: none;
+      font-size: 36px;
+      cursor: pointer;
+      z-index: 3;
+    }
+    .nav-arrow.left {
+      left: -15px;
+    }
+    .nav-arrow.right {
+      left: 1105px;
+    }
+
+    .modal-titles-images{
+      width: 530px;
+      background-color: #f6f6f5;
+      height: 100%;
+      padding-left: 55px;
+      padding-top: 110px;
+      padding-right: 65px;
+    }
+    #modalTitle{
+      font-family: futura-bold;
+      letter-spacing: 1px;
+      font-size: 31px;
+      text-align: left;
+    }
+    #modalYear{
+      font-family: futura-bold;
+      font-size: 19px;
+      text-align: left;
+      padding-top: 10px;
+    }
+    #modalDescription{
+      font-family: futura-bold;
+      font-size: 19px;
+      text-align: left;
+      padding-top: 35px;
+    }
+    #modalSize{
+      font-size: 19px;
+      text-align: left;
+      font-family: futura-bold;
+    }
+    .left-arrow{
+      width: 40px;
+      background-color: transparent;
+    }
+    .left-arrow:hover{
+      background-color: transparent; /* hover დროსაც */
+      filter: none;
+    }
+    .right-arrow{
+      width: 40px;
+      background-color: transparent;
+    }
+    .cross-close{
+      width: 40px;
+      border: none;
+      box-shadow: none;  
+      outline: none; 
+      background: transparent; 
+    }
+    .cross-close:focus-visible{
+      outline: none;
+    }
+  </style>
+  <body>
+    <div class="nav">
+      <div class="main_title">
+        <a href="index.html"
+          ><h1>
+            TATIA&nbsp; <br />
+            MAMULASHVILI
+          </h1></a
+        >
+      </div>
+      <div class="burger" onclick="toggleMenu()">☰</div>
+      <div class="menu" id="menu">
+        <a href="index.html">Home</a>
+        <div
+          class="dropdown"
+          style="
+            color: black;
+            text-decoration: none;
+            font-family: BIO;
+            font-size: 18px;
+            border-bottom: 1.5px solid black;
+          "
+        >
+          Selected Artworks
+          <div class="dropdown-menu">
+            <a href="archive.html">Archive</a>
+            <a href="drawings.html">Drawings</a>
+          </div>
+        </div>
+        <a href="shows.html">Shows</a>
+        <a href="bio.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+
+    <p class="artworks-title">Artworks</p>
+    <div class="line"></div>
+    <p class="artworks-2025-title">2025</p>
+
+    <!-- 2025 -->
+    <div class="artworks-2025">
+      <div class="artworks-2025-items">
+        <img
+          class="artworks-2025-main-img-horizontal"
+          src="images/archive/01/Tat2934.jpg (1).jpg"
+          alt=""
+        />
+        <p class="artwork-name-out">Untitled</p>
+        <p class="artwork-year-out">2025</p>
+      </div>
+      <div class="artworks-2025-items">
+        <img
+          class="artworks-2025-main-img-horizontal"
+          src="images/archive/02/Tat2899.jpg (01).jpg"
+          alt=""
+        />
+        <p class="artwork-name-out">Grimy Pink</p>
+        <p class="artwork-year-out">2025</p>
+      </div>
+      <div class="artworks-2025-items">
+        <img
+          class="artworks-2025-main-img-horizontal"
+          src="images/archive/03/Tat2956.jpg (1.1).png"
+          alt=""
+        />
+        <p class="artwork-name-out">The Lost sign</p>
+        <p class="artwork-year-out">2025</p>
+      </div>
+      <div class="artworks-2025-items">
+        <img
+          class="artworks-2025-main-img-horizontal"
+          src="images/archive/04/Tat2959.jpg (01).jpg"
+          alt=""
+        />
+        <p class="artwork-name-out">Untitled</p>
+        <p class="artwork-year-out">2025</p>
+      </div>
+      <div class="artworks-2025-items">
+        <img
+          class="artworks-2025-main-img-horizontal"
+          src="images/archive/05/Tat3072.jpg (01).jpg"
+          alt=""
+        />
+        <p class="artwork-name-out">Between Two Parallel Worlds</p>
+        <p class="artwork-year-out">2025</p>
+      </div>
+      <div class="artworks-2025-items">
+        <img
+          class="artworks-2025-main-img-horizontal"
+          src="images/archive/06/Tat3117.jpg (01).jpg"
+          alt=""
+        />
+        <p class="artwork-name-out">Untitled</p>
+        <p class="artwork-year-out">2025</p>
+      </div>
+      <div class="artworks-2025-items-ver">
+        <img
+          class="artworks-2025-main-img-vertical"
+          src="images/archive/07/Tat3060.jpg (01).jpg"
+          alt=""
+        />
+        <p class="artwork-name-out">Untitled</p>
+        <p class="artwork-year-out">2025</p>
+      </div>
+      <div class="artworks-2025-items-ver">
+        <img
+          class="artworks-2025-main-img-vertical"
+          src="images/archive/08/Tat3132.jpg (01) vertical.jpg"
+          alt=""
+        />
+        <p class="artwork-name-out">Untitled</p>
+        <p class="artwork-year-out">2025</p>
+      </div>
+      <div class="artworks-2025-items-ver">
+        <img
+          class="artworks-2025-main-img-vertical"
+          src="images/archive/09/Tat2880.jpg (01).jpg"
+          alt=""
+        />
+        <p class="artwork-name-out">Untitled</p>
+        <p class="artwork-year-out">2025</p>
+      </div>
+      <div class="artworks-2025-items-ver">
+        <img
+          class="artworks-2025-main-img-vertical"
+          src="images/archive/10/Tat2927.jpg (01).jpg"
+          alt=""
+        />
+        <p class="artwork-name-out">Untitled</p>
+        <p class="artwork-year-out">2025</p>
+      </div>
+    </div>
+
+    <!-- 2024 -->
+    <div class="line"></div>
+    <div class="artworks-2024">
+      <div class="artworks-2025-items-ver">
+        <img
+          class="artworks-2025-main-img-vertical"
+          src="images/archive/11/01,   .jpg"
+          alt=""
+        />
+        <p class="artwork-name-out">Untitled</p>
+        <p class="artwork-year-out">2025</p>
+      </div>
+      <div class="artworks-2025-items-ver">
+        <img
+          class="artworks-2025-main-img-vertical"
+          src="images/archive/12/03 (new).jpg"
+          alt=""
+        />
+        <p class="artwork-name-out">Untitled</p>
+        <p class="artwork-year-out">2025</p>
+      </div>
+      <div class="artworks-2025-items-ver">
+        <img
+          class="artworks-2025-main-img-vertical"
+          src="images/archive/13/04 .jpg"
+          alt=""
+        />
+        <p class="artwork-name-out">Untitled</p>
+        <p class="artwork-year-out">2025</p>
+      </div>
+      <div class="artworks-2025-items-ver">
+        <img
+          class="artworks-2025-main-img-vertical"
+          src="images/archive/14/06 .jpg"
+          alt=""
+        />
+        <p class="artwork-name-out">Untitled</p>
+        <p class="artwork-year-out">2025</p>
+      </div>
+      <div class="artworks-2025-items-ver">
+        <img
+          class="artworks-2025-main-img-vertical"
+          src="images/archive/15/07 (II version) .jpg"
+          alt=""
+        />
+        <p class="artwork-name-out">Untitled</p>
+        <p class="artwork-year-out">2025</p>
+      </div>
+    </div>
+
+    <div
+      id="imageModal"
+      class="image-modal"
+      aria-hidden="true"
+      style="display: none"
+    >
+      <div class="modal-backdrop" id="modalBackdrop"></div>
+      <div
+        class="modal-panel"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Artwork preview"
+      >
+        <button class="modal-close" id="modalClose" aria-label="Close">
+          <img class="cross-close" src="images/cross-mark.png" alt="">
+        </button>
+
+        
+
+        <button class="nav-arrow left" id="prevBtn" aria-label="Previous">
+          <img class="left-arrow" src="images/left-arrow.png" alt="">
+        </button>
+
+        <div class="modal-image-wrap">
+          <img id="modalMainImg" src="" alt="Artwork view" />
+        </div>
+
+        <button class="nav-arrow right" id="nextBtn" aria-label="Next">
+          <img class="right-arrow" src="images/right-arrow.png" alt="">
+        </button>
+        <div class="modal-titles-images">
+          <div class="modal-meta">
+          <h3 id="modalTitle"></h3>
+          <p id="modalYear"></p>
+          <hr style="margin-top: 45px;">
+          <p id="modalDescription"><p1>
+          <p id="modalSize"></p>
+          <hr style="    margin-top: 42px;">
+        </div>
+        <div class="modal-thumbs" id="modalThumbs" aria-hidden="false">
+        </div>
+        </div>
+        
+      </div>
+    </div>
+
+    <footer class="home-footer" style="margin-top: 200px">
+      <div>
+        <a href="https://www.instagram.com/mamulashvili.tatiaa/" target="_blank"
+          ><img src="images/instagram.png" alt=""
+        /></a>
+        <a href="https://www.behance.net/TaMamulashvili" target="_blank"
+          ><img src="images/behance.png" alt=""
+        /></a>
+        <a
+          href="https://www.linkedin.com/in/tatia-mamulashvili-447469168/"
+          target="_blank"
+          ><img src="images/linkedin.png" alt=""
+        /></a>
+      </div>
+      <div><p>© 2025 Tatia Mamulashvili</p></div>
+    </footer>
+    <script>
+      function toggleMenu() {
+        const menu = document.getElementById("menu");
+        menu.classList.toggle("active");
+      }
+      const baseForIndex = (idx) => {
+        // idx is 1..10
+        return idx < 10 ? `images/archive/0${idx}/` : `images/archive/${idx}/`;
+      };
+
+      // ---------- artworksData — აი აქ არის შენი მონაცემები (გავმართე ავტომატურად) ----------
+      const artworksData = [
+        // Artwork 1
+        {
+          title: "Untitled",
+          year: "2025",
+          images: [
+            "Tat2934.jpg (1)",
+            "Tat2989.jpg (2)",
+            "Tat2990.jpg (3)",
+            "Tat2996.jpg (4)",
+            "Tat3008.jpg (5)",
+            "Tat3004.jpg (6)",
+            "Tat2976.jpg (7)",
+            "Tat2975.jpg (8)",
+            "Tat2984.jpg (9)",
+            "Tat2872.jpg (10)",
+            "Tat2934 (1.1)",
+             "Tat3016",
+          ],
+
+          desctiption:
+            "Acrylic, spray paint, thread, beads, cloth, wrapping paper, rice paper, bin liners, ink pen, pencil on wood frame",
+          size:"200x137x8 cm",
+        },
+        // Artwork 2
+        {
+          title: "Grimy Pink",
+          year: "2025",
+          images: [
+            "Tat2899.jpg (01)",
+            "Tat3046.jpg (02)",
+            "Tat3050.jpg (03)",
+            "Tat2875.jpg (04)",
+          ],
+          desctiption:
+            "Airbrush paint, thread, muslin fabric, silk, tights, bin liners, silk scrunchies on wood frame",
+          size:"200x137x4 cm",
+        },
+        // Artwork 3
+        {
+          title: "The Lost sign",
+          year: "2025",
+          images: [
+            "Tat2956 (1)",
+            // "Tat2956.jpg (1.1)",
+            "Tat2966.jpg (2)",
+            "Tat2968.jpg (3)",
+            "Tat2972.jpg (4)",
+            "Tat2971.jpg (5)",
+            "Tat3015.jpg (6)",
+          ],
+          desctiption:
+            "Various fabrics, papers, thread, plastic on wood frame",
+          size:"120x300x10 cm",
+        },
+        // Artwork 4
+        {
+          title: "Untitled",
+          year: "2025",
+          images: [
+            "Tat2959.jpg (01)",
+            "Tat2962.jpg (02)",
+            "Tat2964.jpg (03)",
+            "Tat2963.jpg (04)",
+            "Tat2893.jpg (05)",
+          ],
+          desctiption:
+            "Acrylic, ink, spray paint, pencil, carving on MDF panel",
+          size:"75x120x3.5 cm",
+        },
+        // Artwork 5
+        {
+          title: "Between Two Parallel Worlds",
+          year: "2025",
+          images: [
+            "Tat3072.jpg (01)",
+            "Tat2923.jpg (02)",
+            "Tat3103 (03)",
+            "Tat3094.jpg (04)",
+            "Tat3107.jpg (05)",
+            "Tat3098.jpg (06)",
+            "Tat3114.jpg (07)",
+            "Tat3115.jpg (08)",
+            "Tat3069.jpg (09)",
+            "Tat3112.jpg (10)",
+            "Tat3071.jpg (11)",
+          ],
+          desctiption:
+            "Pencil, masking tape, paper, plastic sheets, bin liners, thread, cloth on the wall",
+          size:"300x600x30 cm",
+        },
+        // Artwork 6
+        {
+          title: "Untitled",
+          year: "2025",
+          images: [
+            "Tat3117.jpg (01).jpg",
+            "Tat3122.jpg (02)",
+            "Tat3120.jpg (03)",
+            "Tat2931.jpg (04)",
+          ],
+          desctiption:
+            "Various fabrics and papers hanging on thread and metal wire",
+          size:"80x120x15",
+        },
+        // Artwork 7
+        {
+          title: "The Hanged Man",
+          year: "2025",
+          images: [
+            "Tat3060.jpg (01)",
+            "Tat3062.jpg (02)",
+            "Tat3061.jpg (03)",
+            "Tat3063.jpg (04)",
+          ],
+          desctiption:
+            "paper, pencil on paper",
+          size:"11x11x4",
+        },
+        // Artwork 8
+        {
+          title: "Untitled",
+          year: "2025",
+          images: [
+            "Tat3131.jpg (01.1) Horizontal",
+            "Tat3132.jpg (01) vertical",
+            "Tat3133.jpg (02)",
+            "Tat3054.jpg (03)",
+          ],
+          desctiption:
+            "Acrylic, ink, spray paint on canvas",
+          size:"80x80x4 cm",
+        },
+        // Artwork 9
+        {
+          title: "Untitled",
+          year: "2025",
+          images: [
+            "Tat2880.jpg (01)",
+            "Tat3137.jpg (02)",
+            "Tat3139.jpg (03)",
+            "Tat3144.jpg (04)",
+            "Tat3141.jpg (05)",
+            "Tat3142.jpg (06)",
+          ],
+          desctiption:
+            "Airbrush paint, thread, muslin fabric, silk, tights, bin liners, silk scrunchies on wood frame",
+          size:"200x137x8 cm",
+        },
+        // Artwork 10
+        {
+          title: "Untitled",
+          year: "2025",
+          images: [
+            "Tat2927.jpg (01)",
+            "Tat3082.jpg (02)",
+            "Tat3086.jpg (03)",
+            "Tat3084.jpg (04)",
+          ],
+          desctiption:
+            "Airbrush paint, thread, muslin fabric, silk, tights, bin liners, silk scrunchies on wood frame",
+          size:"200x137x8 cm",
+        },
+        // Artwork 11
+        {
+          title: "Untitled",
+          year: "2025",
+          images: [
+            "01,   .jpg",
+          ],
+          desctiption:
+            "Acrylic, spray paint, tissue paper, masking tape, fabric, bin liner on wrapping paper",
+          size:"42 x 59.4 cm",
+        },
+        // Artwork 12
+        {
+          title: "Untitled",
+          year: "2025",
+          images: [
+            "03 (new).jpg",
+          ],
+          desctiption:
+            "Acrylic, spray paint, pastel, fabric, bin liner, and engraving on wood",
+          size:"120x80x3.5 cm",
+        },
+        // Artwork 13
+        {
+          title: "Untitled",
+          year: "2025",
+          images: [
+            "04 .jpg",
+          ],
+          desctiption:
+            "Print on canvas, curtain, spray paint, thread, on a wood frame",
+          size:"190x90x70 cm",
+        },
+        // Artwork 14
+        {
+          title: "Untitled",
+          year: "2025",
+          images: [
+            "06 .jpg",
+          ],
+          desctiption:
+            "Acrylic, spray paint, knitting thread, hessian, etching ink on wrapping paper",
+          size:"42 x 59.4 cm",
+        },
+        // Artwork 15
+        {
+          title: "Untitled",
+          year: "2025",
+          images: [
+            "07 (II version) .jpg",
+          ],
+          desctiption:
+            "Acrylic, cardboard, thread, bin liner on canvas",
+          size:"42 x 59.4 x 4 cm",
+        },
+      ];
+
+      // ---------- helper to ensure extension: add .jpg if none present ----------
+      function ensureExtension(name) {
+        // trim whitespace
+        name = name.trim();
+        // if name already contains a dot with typical image ext, keep as is
+        if (/\.(jpg|jpeg|png|webp|gif)$/i.test(name)) return name;
+        // otherwise add .jpg
+        return name + ".jpg";
+      }
+
+      // ---------- build full paths for every artwork (assume folder per index) ----------
+      artworksData.forEach((art, i) => {
+        const folder = baseForIndex(i + 1); // i is 0-based
+        art.fullPaths = art.images.map((fn) => folder + ensureExtension(fn));
+      });
+
+      // ---------- DOM references ----------
+      const modal = document.getElementById("imageModal");
+      const modalBackdrop = document.getElementById("modalBackdrop");
+      const modalClose = document.getElementById("modalClose");
+      const modalTitle = document.getElementById("modalTitle");
+      const modalYear = document.getElementById("modalYear");
+      const modalDescription = document.getElementById("modalDescription");
+      const modalSize = document.getElementById("modalSize")
+      const modalMainImg = document.getElementById("modalMainImg");
+      const modalThumbs = document.getElementById("modalThumbs");
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
+
+      let currentArtworkIndex = 0;
+      let currentImageIndex = 0;
+
+      // find all visible artwork cards on the page (order matters)
+      const cards = Array.from(
+        document.querySelectorAll(
+          ".artworks-2025 .artworks-2025-items, .artworks-2025 .artworks-2025-items-ver, .artworks-2024 .artworks-2025-items-ver"
+        )
+      );
+
+      // attach click handlers to thumbnails on page to open modal; we map by order: first card -> artworksData[0], etc.
+      cards.forEach((card, idx) => {
+        card.style.cursor = "pointer";
+        card.addEventListener("click", () => {
+          openArtwork(idx);
+        });
+      });
+
+      // open specific artwork (idx = index of card)
+      function openArtwork(idx) {
+        // clamp idx to artworksData length
+        if (idx < 0 || idx >= artworksData.length) return;
+        currentArtworkIndex = idx;
+        currentImageIndex = 0;
+        const art = artworksData[idx];
+
+        modalTitle.textContent = art.title || "";
+        modalYear.textContent = art.year || "";
+        modalDescription.textContent = art.desctiption || "";
+        modalSize.textContent = art.size || ""
+
+        renderMainAndThumbs();
+        showModal();
+      }
+
+      function renderMainAndThumbs() {
+  const art = artworksData[currentArtworkIndex];
+  if (!art || !art.fullPaths || art.fullPaths.length === 0) return;
+
+  currentImageIndex =
+    (currentImageIndex + art.fullPaths.length) % art.fullPaths.length;
+
+  // მთავარი სურათი
+  modalMainImg.src = art.fullPaths[currentImageIndex];
+  modalMainImg.alt =
+    (art.title || "Artwork") + " view " + (currentImageIndex + 1);
+
+  // *** 1 ფოტოს ლოგიკა (11–15 artworks) ***
+  const isSingleImage = art.fullPaths.length === 1;
+
+  // ისრები მხოლოდ მაშინ გამოჩნდეს თუ >1 ფოტო არსებობს
+  prevBtn.style.display = isSingleImage ? "none" : "block";
+  nextBtn.style.display = isSingleImage ? "none" : "block";
+
+  // detailed thumbnails მხოლოდ მაშინ გამოჩნდეს თუ >1 ფოტო არსებობს
+  modalThumbs.style.display = isSingleImage ? "none" : "flex";
+
+  // თუ 1 ფოტოა – thumbs საერთოდ არ ვხატავთ
+  if (isSingleImage) {
+    modalThumbs.innerHTML = "";
+    return;
+  }
+
+  // თუ რამდენიმე ფოტოა – thumbnails ვხატავთ
+  modalThumbs.innerHTML = "";
+  art.fullPaths.forEach((p, i) => {
+    const t = document.createElement("img");
+    t.src = p;
+    t.alt = `thumb ${i + 1}`;
+    if (i === currentImageIndex) t.classList.add("active");
+    t.addEventListener("click", () => {
+      currentImageIndex = i;
+      renderMainAndThumbs();
+    });
+    modalThumbs.appendChild(t);
+  });
+}
+
+      // show/hide modal
+      function showModal() {
+        modal.style.display = "flex";
+        modal.setAttribute("aria-hidden", "false");
+        // focus somewhere for accessibility
+        modalClose.focus();
+      }
+      function closeModal() {
+        modal.style.display = "none";
+        modal.setAttribute("aria-hidden", "true");
+      }
+
+      // nav
+      prevBtn.addEventListener("click", () => {
+        const art = artworksData[currentArtworkIndex];
+        currentImageIndex =
+          (currentImageIndex - 1 + art.fullPaths.length) % art.fullPaths.length;
+        renderMainAndThumbs();
+      });
+      nextBtn.addEventListener("click", () => {
+        const art = artworksData[currentArtworkIndex];
+        currentImageIndex = (currentImageIndex + 1) % art.fullPaths.length;
+        renderMainAndThumbs();
+      });
+
+      // close handlers
+      modalClose.addEventListener("click", closeModal);
+      modalBackdrop.addEventListener("click", closeModal);
+
+      // keyboard support
+      document.addEventListener("keydown", (e) => {
+        if (modal.style.display === "flex") {
+          if (e.key === "Escape") closeModal();
+          if (e.key === "ArrowLeft") prevBtn.click();
+          if (e.key === "ArrowRight") nextBtn.click();
+        }
+      });
+
+      // Optional: lazy load main image on error fallback
+      modalMainImg.addEventListener("error", () => {
+        modalMainImg.style.objectFit = "contain";
+        modalMainImg.src =
+          artworksData[currentArtworkIndex].fullPaths[currentImageIndex]; // attempt reload
+      });
+    </script>
+  </body>
+</html>

@@ -12,7 +12,6 @@
         flex: 1 1 auto; /* მთავარი სექცია დაიკავებს დარჩენილ სივრცეს */
         display: flex; /* optional, თუ გინდა შიგნით ელემენტები ცენტრში */
       }
-
       .full-image {
         flex-grow: 1;
         background-image: url(images/main.jpg);
@@ -24,37 +23,64 @@
       }
     </style>
   </head>
-  <body>
+  <body
+    style="
+      background-image: url(images/main.jpg);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      object-fit: cover;
+    "
+  >
     <div class="nav">
       <div class="main_title">
-        <a href="index.html"><h1>TATIA&nbsp; MAMULASHVILI</h1></a>
+        <a href="index.html"
+          ><h1>
+            TATIA&nbsp; <br />
+            MAMULASHVILI
+          </h1></a
+        >
       </div>
       <div class="burger" onclick="toggleMenu()">☰</div>
       <div class="menu" id="menu">
-        <a href="index.html">HOME</a>
-        <a href="works.html">WORKS</a>
-        <a href="shows.html">SHOWS</a>
-        <a href="bio.html">BIO</a>
-        <a href="contact.html">CONTACT</a>
+        <a href="index.html" style="border-bottom: 1.5px solid black">Home</a>
+        <div
+          class="dropdown"
+          style="
+            color: black;
+            text-decoration: none;
+            font-family: BIO;
+            font-size: 18px;
+          "
+        >
+          Selected Artworks
+          <div class="dropdown-menu">
+            <a href="archive.html">Archive</a>
+            <a href="drawings.html">Drawings</a>
+          </div>
+        </div>
+        <a href="shows.html">Shows</a>
+        <a href="bio.html">About</a>
+        <a href="contact.html">Contact</a>
       </div>
     </div>
-    <main>
-      <section class="full-image"></section>
-    </main>
-    <footer>
-      <a href="https://www.instagram.com/mamulashvili.tatiaa/" target="_blank"
-        ><img src="images/instagram.png" alt=""
-      /></a>
-      <a href="https://www.behance.net/TaMamulashvili" target="_blank"
-        ><img src="images/behance.png" alt=""
-      /></a>
-      <a
-        href="https://www.linkedin.com/in/tatia-mamulashvili-447469168/"
-        target="_blank"
-        ><img src="images/linkedin.png" alt=""
-      /></a>
-      <p></p>
-      <p>© 2025 Tatia Mamulashvili</p>
+
+    <!-- <main> <section class="full-image"></section> </main> -->
+    <footer class="home-footer">
+      <div>
+        <a href="https://www.instagram.com/mamulashvili.tatiaa/" target="_blank"
+          ><img src="images/instagram.png" alt=""
+        /></a>
+        <a href="https://www.behance.net/TaMamulashvili" target="_blank"
+          ><img src="images/behance.png" alt=""
+        /></a>
+        <a
+          href="https://www.linkedin.com/in/tatia-mamulashvili-447469168/"
+          target="_blank"
+          ><img src="images/linkedin.png" alt=""
+        /></a>
+      </div>
+      <div><p>© 2025 Tatia Mamulashvili</p></div>
     </footer>
     <script>
       function toggleMenu() {

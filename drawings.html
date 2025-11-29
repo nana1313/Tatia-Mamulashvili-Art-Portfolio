@@ -4,112 +4,452 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="images/favicon.png" type="image/png" />
     <meta charset="UTF-8" />
-    <title>GALLERY</title>
+    <title>Tatia Mamulashvili</title>
     <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
     <style>
-      .page_p {
-        color: black;
-        text-align: center;
-        font-size: 18px;
+      .artworks-title {
+        font-family: futura-bold;
+        font-size: 23px;
+        padding-top: 95px;
+        padding-left: 80px;
+        padding-bottom: 16px;
+        letter-spacing: 2px;
       }
-      .gallery {
+      .line {
+        width: 1535px;
+        height: 3px;
+        background-color: #d7d9db;
+        margin: 0 auto;
+        padding-top: 3px;
+      }
+      .ad-gallery {
+        padding-left: 80px;
+        padding-top: 85px;
+        padding-right: 80px;
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-        padding: 20px;
+        grid-template-columns: repeat(2, 1fr); /* 2 სვეტი */
+        gap: 82px; /* მანძილი ფოტოებს შორის */
+        /* max-width: 1200px; */
+        margin: 0 auto;
+        justify-items: center;
+        padding-bottom: 130px;
       }
-      .gallery img {
-        width: 100%;
-        border-radius: 10px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s;
+      .ad-art-horizontal {
+        width: 670px;
       }
-      .gallery img:hover {
-        transform: scale(1.05);
+      .ad-art-image-hor {
+        width: 670px;
+        cursor: pointer;
       }
-      @media (max-width: 900px) {
-        .gallery {
-          grid-template-columns: repeat(2, 1fr);
-          padding: 15px;
-          gap: 15px;
-        }
-        .page_p {
-          font-size: 16px;
-          padding: 0 10px;
-        }
-        .page_title {
-          font-size: 22px;
-        }
+      .mafa-art-image-ver {
+        width: 670px;
+        cursor: pointer;
       }
 
-      @media (max-width: 600px) {
-        .gallery {
-          grid-template-columns: 1fr;
-          padding: 10px;
-          gap: 10px;
-        }
-        .page_p {
-          font-size: 14px;
-          padding: 0 8px;
-        }
-        .gallery img:hover {
-          transform: none; /* მობილურზე არ გავზარდოთ */
-        }
-        .page_title {
-          font-size: 22px;
-        }
+      /* modali */
+      .modal {
+        position: fixed;
+        inset: 0;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        background-color: white;
+      }
+
+      .modal img {
+        max-width: 95vw;
+        max-height: 95vh;
+        object-fit: contain;
+      }
+
+      /* X button */
+      .close {
+        position: absolute;
+        top: 25px;
+        right: 35px;
+        font-size: 40px;
+        color: white;
+        cursor: pointer;
+      }
+
+      /* Arrows */
+      .arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 50px;
+        color: white;
+        cursor: pointer;
+        user-select: none;
+        padding: 10px 20px;
+      }
+
+      .left {
+        left: 20px;
+      }
+
+      .right {
+        right: 20px;
+      }
+      .cross-close {
+        width: 40px;
+        border: none;
+        box-shadow: none;
+        outline: none;
+        background: transparent;
+      }
+      .left-arrow {
+        width: 40px;
+        background-color: transparent;
+      }
+      .right-arrow {
+        width: 40px;
+        background-color: transparent;
+      }
+      .ad-art-image-hor:hover + .ad-art-image-hor-title {
+        text-decoration: underline;
+      }
+      .ad-art-image-hor-title:hover {
+        text-decoration: underline;
       }
     </style>
   </head>
   <body>
     <div class="nav">
       <div class="main_title">
-        <a href="index.html"><h1>TATIA&nbsp; MAMULASHVILI</h1></a>
+        <a href="index.html"
+          ><h1>
+            TATIA&nbsp; <br />
+            MAMULASHVILI
+          </h1></a
+        >
       </div>
       <div class="burger" onclick="toggleMenu()">☰</div>
       <div class="menu" id="menu">
-        <a href="index.html">HOME</a>
-        <a href="works.html">WORKS</a>
-        <a href="shows.html">SHOWS</a>
-        <a href="bio.html">BIO</a>
-        <a href="contact.html">CONTACT</a>
+        <a href="index.html">Home</a>
+        <div
+          class="dropdown"
+          style="
+            color: black;
+            text-decoration: none;
+            font-family: BIO;
+            font-size: 18px;
+            border-bottom: 1.5px solid black;
+          "
+        >
+          Selected Artworks
+          <div class="dropdown-menu">
+            <a href="archive.html">Archive</a>
+            <a href="drawings.html">Drawings</a>
+          </div>
+        </div>
+        <a href="shows.html">Shows</a>
+        <a href="bio.html">About</a>
+        <a href="contact.html">Contact</a>
       </div>
     </div>
-    <h1 class="page_title">DRAWINGS</h1>
-    <p class="page_p">The works are listed from latest to earliest.</p>
-    <section class="gallery">
-      <img src="images/drawing/2024 (01).jpg" alt="art1" />
-      <img src="images/drawing/2023 (02).png" alt="art2" />
-      <img src="images/drawing/2023 (03).jpg" alt="art3" />
-      <img src="images/drawing/2023 (04).jpg" alt="art4" />
-      <img src="images/drawing/2023 (05).jpg" alt="art4" />
-      <img src="images/drawing/2023 (06).png" alt="art4" />
-      <img src="images/drawing/2023 (2).jpg" alt="art4" />
-      <img src="images/drawing/2023 (4).jpg" alt="art4" />
-      <img src="images/drawing/03.png" alt="art4" />
-      <img src="images/drawing/04.png" alt="art4" />
-    </section>
 
-    <footer>
-      <a href="https://www.instagram.com/mamulashvili.tatiaa/" target="_blank"
-        ><img src="images/instagram.png" alt=""
-      /></a>
-      <a href="https://www.behance.net/TaMamulashvili" target="_blank"
-        ><img src="images/behance.png" alt=""
-      /></a>
-      <a
-        href="https://www.linkedin.com/in/tatia-mamulashvili-447469168/"
-        target="_blank"
-        ><img src="images/linkedin.png" alt=""
-      /></a>
-      <p></p>
-      <p>© 2025 Tatia Mamulashvili</p>
+    <p class="artworks-title">Drawings</p>
+    <div class="line"></div>
+    <div class="ad-gallery">
+      <div class="ad-art-horizontal">
+        <img class="ad-art-image-hor" src="images/drawing/(01).jpg" alt="" />
+        <p
+          style="
+            font-family: BIO;
+            font-size: 19px;
+            cursor: pointer;
+            padding-top: 10px;
+          "
+          class="ad-art-image-hor-title"
+        >
+          Untitled
+        </p>
+        <p class="font-family: futura-bold; font-size: 17px;">
+          Marker, coloured pencil on brown paper
+        </p>
+        <p style="font-family: futura-bold; font-size: 17px">21x 14.8 cm</p>
+        <p style="font-family: futura-bold; font-size: 17px">2023</p>
+      </div>
+      <div class="ad-art-horizontal">
+        <img class="ad-art-image-hor" src="images/drawing/(02).jpg" alt="" />
+        <p
+          style="
+            font-family: BIO;
+            font-size: 19px;
+            cursor: pointer;
+            padding-top: 10px;
+          "
+          class="ad-art-image-hor-title"
+        >
+          Untitled
+        </p>
+        <p class="font-family: futura-bold; font-size: 17px;">
+          Ink on brown paper
+        </p>
+        <p style="font-family: futura-bold; font-size: 17px">21x 14.8 cm</p>
+        <p style="font-family: futura-bold; font-size: 17px">2023</p>
+      </div>
+      <div class="ad-art-horizontal">
+        <img class="ad-art-image-hor" src="images/drawing/03.jpg" alt="" />
+        <p
+          style="
+            font-family: BIO;
+            font-size: 19px;
+            cursor: pointer;
+            padding-top: 10px;
+          "
+          class="ad-art-image-hor-title"
+        >
+          Untitled
+        </p>
+        <p class="font-family: futura-bold; font-size: 17px;">
+          Ink, watercolour on paper
+        </p>
+        <!-- <p style="font-family: futura-bold; font-size: 17px">21x 14.8 cm</p> -->
+        <p style="font-family: futura-bold; font-size: 17px">2023</p>
+      </div>
+      <div class="ad-art-horizontal">
+        <img class="ad-art-image-hor" src="images/drawing/06.jpg" alt="" />
+        <p
+          style="
+            font-family: BIO;
+            font-size: 19px;
+            cursor: pointer;
+            padding-top: 10px;
+          "
+          class="ad-art-image-hor-title"
+        >
+          Untitled
+        </p>
+        <p class="font-family: futura-bold; font-size: 17px;">
+          Coloured pencil, ink on paper
+        </p>
+        <p style="font-family: futura-bold; font-size: 17px">21x 14.8 cm</p>
+        <p style="font-family: futura-bold; font-size: 17px">2023</p>
+      </div>
+
+      <div class="ad-art-horizontal">
+        <img class="ad-art-image-hor" src="images/drawing/04.jpg" alt="" />
+        <p
+          style="
+            font-family: BIO;
+            font-size: 19px;
+            cursor: pointer;
+            padding-top: 10px;
+          "
+          class="ad-art-image-hor-title"
+        >
+          Untitled
+        </p>
+        <p class="font-family: futura-bold; font-size: 17px;">
+          Marker, ink, pencil on brown paper
+        </p>
+        <p style="font-family: futura-bold; font-size: 17px">14.8 x 21 cm</p>
+        <p style="font-family: futura-bold; font-size: 17px">2023</p>
+      </div>
+      <div class="ad-art-horizontal">
+        <img class="ad-art-image-hor" src="images/drawing/05.png" alt="" />
+        <p
+          style="
+            font-family: BIO;
+            font-size: 19px;
+            cursor: pointer;
+            padding-top: 10px;
+          "
+          class="ad-art-image-hor-title"
+        >
+          Untitled
+        </p>
+        <p class="font-family: futura-bold; font-size: 17px;">
+          Ink, watercolour on paper
+        </p>
+        <p style="font-family: futura-bold; font-size: 17px">21 x 29.7 cm</p>
+        <p style="font-family: futura-bold; font-size: 17px">2023</p>
+      </div>
+      <div class="ad-art-horizontal">
+        <img class="ad-art-image-hor" src="images/drawing/07.jpg" alt="" />
+        <p
+          style="
+            font-family: BIO;
+            font-size: 19px;
+            cursor: pointer;
+            padding-top: 10px;
+          "
+          class="ad-art-image-hor-title"
+        >
+          Untitled
+        </p>
+        <p class="font-family: futura-bold; font-size: 17px;">
+          Marker, coloured pencil on brown paper
+        </p>
+        <p style="font-family: futura-bold; font-size: 17px">14.8 x 21 cm</p>
+        <p style="font-family: futura-bold; font-size: 17px">2023</p>
+      </div>
+      <div class="ad-art-horizontal">
+        <img class="ad-art-image-hor" src="images/drawing/08.jpg" alt="" />
+        <p
+          style="
+            font-family: BIO;
+            font-size: 19px;
+            cursor: pointer;
+            padding-top: 10px;
+          "
+          class="ad-art-image-hor-title"
+        >
+          Untitled
+        </p>
+        <p class="font-family: futura-bold; font-size: 17px;">
+          Coloured pencil, ink on paper
+        </p>
+        <p style="font-family: futura-bold; font-size: 17px">14.8 x 21 cm</p>
+        <p style="font-family: futura-bold; font-size: 17px">2023</p>
+      </div>
+      <div class="ad-art-horizontal">
+        <img class="ad-art-image-hor" src="images/drawing/09.jpg" alt="" />
+        <p
+          style="
+            font-family: BIO;
+            font-size: 19px;
+            cursor: pointer;
+            padding-top: 10px;
+          "
+          class="ad-art-image-hor-title"
+        >
+          Untitled
+        </p>
+        <p class="font-family: futura-bold; font-size: 17px;">
+          Coloured pencil, ink, marker on paper
+        </p>
+        <p style="font-family: futura-bold; font-size: 17px">14.8 x 21 cm</p>
+        <p style="font-family: futura-bold; font-size: 17px">2023</p>
+      </div>
+      <div class="ad-art-horizontal">
+        <img class="ad-art-image-hor" src="images/drawing/10.jpg" alt="" />
+        <p
+          style="
+            font-family: BIO;
+            font-size: 19px;
+            cursor: pointer;
+            padding-top: 10px;
+          "
+          class="ad-art-image-hor-title"
+        >
+          Untitled
+        </p>
+        <p class="font-family: futura-bold; font-size: 17px;">
+          Charcoal, coloured pencil, ink on paper
+        </p>
+        <p style="font-family: futura-bold; font-size: 17px">14.8 x 21 cm</p>
+        <p style="font-family: futura-bold; font-size: 17px">2023</p>
+      </div>
+      <div class="ad-art-horizontal">
+        <img class="ad-art-image-hor" src="images/drawing/11.jpg" alt="" />
+        <p
+          style="
+            font-family: BIO;
+            font-size: 19px;
+            cursor: pointer;
+            padding-top: 10px;
+          "
+          class="ad-art-image-hor-title"
+        >
+          Untitled
+        </p>
+        <p class="font-family: futura-bold; font-size: 17px;">
+          Indian ink, acrylics on Fabriano paper
+        </p>
+        <p style="font-family: futura-bold; font-size: 17px">59.4 x 84.1 cm</p>
+        <p style="font-family: futura-bold; font-size: 17px">2023</p>
+      </div>
+    </div>
+    <div class="modal" id="modal">
+      <span class="close" id="modalClose"
+        ><img class="cross-close" src="images/cross-mark.png" alt=""
+      /></span>
+      <span class="arrow left" id="prev"
+        ><img class="left-arrow" src="images/left-arrow.png" alt=""
+      /></span>
+      <img id="modalImg" />
+      <span class="arrow right" id="next"
+        ><img class="right-arrow" src="images/right-arrow.png" alt=""
+      /></span>
+    </div>
+    <footer class="home-footer" style="margin-top: 200px">
+      <div>
+        <a href="https://www.instagram.com/mamulashvili.tatiaa/" target="_blank"
+          ><img src="images/instagram.png" alt=""
+        /></a>
+        <a href="https://www.behance.net/TaMamulashvili" target="_blank"
+          ><img src="images/behance.png" alt=""
+        /></a>
+        <a
+          href="https://www.linkedin.com/in/tatia-mamulashvili-447469168/"
+          target="_blank"
+          ><img src="images/linkedin.png" alt=""
+        /></a>
+      </div>
+      <div><p>© 2025 Tatia Mamulashvili</p></div>
     </footer>
     <script>
-      function toggleMenu() {
-        const menu = document.getElementById("menu");
-        menu.classList.toggle("active");
+      const images = document.querySelectorAll(".ad-gallery img");
+      const modal = document.getElementById("modal");
+      const modalImg = document.getElementById("modalImg");
+
+      const closeBtn = document.getElementById("modalClose");
+      const prevBtn = document.getElementById("prev");
+      const nextBtn = document.getElementById("next");
+
+      let index = 0;
+
+      /* OPEN MODAL */
+      images.forEach((img, i) => {
+        img.addEventListener("click", () => {
+          index = i;
+          modal.style.display = "flex";
+          showImage();
+        });
+      });
+
+      /* SHOW IMAGE */
+      function showImage() {
+        modalImg.src = images[index].src;
       }
+
+      /* NEXT */
+      nextBtn.addEventListener("click", () => {
+        index++;
+        if (index >= images.length) index = 0;
+        showImage();
+      });
+
+      /* PREV */
+      prevBtn.addEventListener("click", () => {
+        index--;
+        if (index < 0) index = images.length - 1;
+        showImage();
+      });
+
+      /* CLOSE */
+      closeBtn.addEventListener("click", () => {
+        modal.style.display = "none";
+      });
+
+      /* CLOSE ON BACKGROUND CLICK */
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) modal.style.display = "none";
+      });
+
+      /* KEYBOARD */
+      document.addEventListener("keydown", (e) => {
+        if (modal.style.display !== "flex") return;
+
+        if (e.key === "Escape") modal.style.display = "none";
+        if (e.key === "ArrowRight") nextBtn.click();
+        if (e.key === "ArrowLeft") prevBtn.click();
+      });
     </script>
   </body>
 </html>

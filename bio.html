@@ -33,65 +33,90 @@
   <body class="bio">
     <div class="nav">
       <div class="main_title">
-        <a href="index.html"><h1>TATIA&nbsp; MAMULASHVILI</h1></a>
+        <a href="index.html"><h1 style="font-size: 32px;
+  letter-spacing: 9px;">TATIA&nbsp; <br/>MAMULASHVILI</h1></a>
       </div>
       <div class="burger" onclick="toggleMenu()">☰</div>
       <div class="menu" id="menu">
-        <a href="index.html">HOME</a>
-        <a href="works.html">WORKS</a>
-        <a href="shows.html">SHOWS</a>
-        <a href="bio.html">BIO</a>
-        <a href="contact.html">CONTACT</a>
+        <a href="index.html">Home</a>
+        <div
+          class="dropdown"
+          style="
+            color: black;
+            text-decoration: none;
+            font-family: BIO;
+            font-size: 18px;
+          "
+        >
+          Selected Artworks
+          <div class="dropdown-menu">
+            <a href="archive.html">Archive</a>
+            <a href="drawings.html">Drawings</a>
+          </div>
+          </div>
+        <a href="shows.html">Shows</a>
+        <a href="bio.html" style="border-bottom: 1.5px solid black">About</a>
+        <a href="contact.html">Contact</a>
       </div>
     </div>
-    <h1 class="page_title">BIO</h1>
-
     <div class="about">
       <div class="about_img">
         <img src="images/tatia.jpg" alt="" />
       </div>
       <div>
+        <h1 class="page_title">BIO</h1>
         <p>
-          &nbsp;&nbsp;&nbsp;Born in Georgia and now based in East London, artist
+          Born in Georgia and now based in East London, artist
           Tatia Mamulashvili is a painter whose practice inhabits the
           intersection of figurative expressionism, abstraction, and
           installation.<br /><br />
           Mamulashvili’s work explores the fragile boundary between internal and
           external worlds. Her figures, often dissolving or metamorphosing into
-          space, embody a shifting sense of identity — one that moves between
-          self and others. Disrupting the idea of a body as a whole, unified
-          object — a Gestalt — she manifests the fragmented, unstable way the
-          subject experiences themselves. Her blurry, ambiguous figures suggest
-          inner states that are constantly changing, unknown even to herself.
-          Through painting, she probes for hidden and forgotten feelings: love,
-          grief, loss, and fear — using art as a field for what remains
-          undefined.<br /><br />
-          &nbsp;&nbsp;&nbsp;The artist’s methodology is rooted in spontaneity
-          and a slow emotional intuition. She begins with a vague, shifting
-          image, allowing it to evolve during the creative process. Mamulashvili
-          often works with bricolage, combining fragile and used materials —
-          papers, fabrics, and found objects — each carrying its own ineffable
-          history and energy. Wrapping papers, polystyrene curtains, Georgian
-          curtains from her hometown, and trash bin bags — these materials,
-          transported from their original purposes, are transformed through
-          cutting, tearing, sewing, and glueing. In these acts of damage and
-          repair, Mamulashvili expresses both destruction and healing, exploring
-          impermanence, vulnerability, and renewal.<br /><br />
-          &nbsp;&nbsp;&nbsp;Moving towards installation marks a new emergence in
+          space, embody a shifting sense of identity, one that moves between
+          self and others. Disrupting the idea of a body as a whole unified
+          object, she manifests the fragmented, unstable way the subject
+          experiences themselves. Her blurry, ambiguous figures suggest inner
+          states that are constantly changing, unknown even to herself.
+          <br /><br />
+          Through painting, she probes for hidden and
+          forgotten feelings: love, grief, loss, and fear- using art as a field
+          for what remains undefined.<br /><br />
+          Mamulashvili often works with bricolage, combining
+          fragile and used materials such as paper, fabrics, Georgian curtains
+          from her hometown, bin bags and found objects. Each carrying its own
+          ineffable history and energy these materials, transported from their
+          original purposes, are transformed through cutting, tearing, sewing,
+          and glueing. In these acts of damage and repair, Mamulashvili
+          expresses both destruction and healing, exploring impermanence,
+          vulnerability, and renewal. <br /><br />
+          Moving towards installation marks a new emergence in
           her practice. With a background in architecture and traditional
-          academic art training — where precision, perspective, and the comfort
-          of certainty were keystones — Mamulashvili now chooses to create
+          academic art training - where precision, perspective, and the comfort
+          of certainty were keystones - Mamulashvili now chooses to create
           spaces that reject safety and challenge stability. Instead of
           designing harmonious environments, she constructs fragmented,
           unsettling spaces that invite emotional and psychological engagement.
           She aims not to offer comfort but to provoke direct embodied
           responses, allowing viewers to feel, question, and inhabit the
-          emotional landscapes she creates.
+          emotional landscapes she creates.<br /><br /><br /><br/>
+          <span class="bio-exhibitions">EXHIBITIONS</span><br/>
+          <p class="bio-exhibitions-p">
+            December 2025 | <span style="font-family: BIO-BOLD;">Abstract in Motion </span>| Group Exhibition, Art Gallery Finesteria, Milan, Italy<br/><br/>
+September 2025 | <span style="font-family: BIO-BOLD;">MAFA Postgrad Show</span> | Group Exhibition, Way out East Gallery, London<br/><br/>
+April 2025 | <span style="font-family: BIO-BOLD;">AD 7002</span> | Group Exhibition,  Way out East Gallery, London<br/><br/>
+February 2025 | <span style="font-family: BIO-BOLD;">24 Hour HUNAROUND show</span> | Group Exhibition, Way out East Gallery, London<br/><br/>
+December 2024 | <span style="font-family: BIO-BOLD;">Stairing Up</span> | Group Exhibition, Tower Gallery, London<br/><br/>
+
+          </p>
         </p>
       </div>
     </div>
 
-    <footer>
+    <footer style="display: flex;
+    flex-direction: column;
+    padding-top: 149px;
+    padding-bottom: 180px;">
+      <div>
       <a href="https://www.instagram.com/mamulashvili.tatiaa/" target="_blank"
         ><img src="images/instagram.png" alt=""
       /></a>
@@ -103,7 +128,7 @@
         target="_blank"
         ><img src="images/linkedin.png" alt=""
       /></a>
-      <p></p>
+      </div>
       <p>© 2025 Tatia Mamulashvili</p>
     </footer>
     <script>

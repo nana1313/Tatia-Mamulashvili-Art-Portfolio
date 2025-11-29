@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="style.css" />
     <style>
       .contact-form {
+        gap: 30px;
         display: flex;
         flex-direction: column;
         max-width: 500px;
         margin: 60px auto;
-        gap: 16px;
         font-family: sans-serif;
       }
 
@@ -20,35 +20,41 @@
       .contact-form textarea {
         padding: 10px;
         font-size: 16px;
-        border: 1px solid #ccc;
         border-radius: 4px;
+        border: none;
+        border-bottom: 1.2px solid#282828;
+        outline: none;
       }
 
       .contact-form button {
-        background-color: #333;
-        color: white;
+        background-color: #ffffff;
+        color: rgb(0, 0, 0);
         padding: 12px;
         font-size: 14px;
-        border: none;
-        border-radius: 5px;
+        border: 1.3px solid black;
+        border-radius: 2px;
         cursor: pointer;
+        font-family: futura;
+        width: 100px;
       }
 
       .contact-form button:hover {
         background-color: #555;
       }
       .form-titles {
-        font-family: main_title;
-        font-size: 15px;
+        font-family: futura;
+        font-size: 18px;
+        font-style: bold;
+        color: black;
       }
       .form-button {
         width: 160px;
         background-color: #000000;
-        font-family: main_title;
+        font-family: futura;
       }
       .submit {
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
       }
       @media (max-width: 768px) {
         .page_title {
@@ -72,76 +78,128 @@
       }
     </style>
   </head>
-  <body>
+  <body style="background-color: white">
     <div class="nav">
       <div class="main_title">
-        <a href="index.html"><h1>TATIA&nbsp; MAMULASHVILI</h1></a>
+        <a href="index.html"
+          ><h1 style="font-size: 32px; letter-spacing: 9px">
+            TATIA&nbsp; <br />MAMULASHVILI
+          </h1></a
+        >
       </div>
       <div class="burger" onclick="toggleMenu()">☰</div>
       <div class="menu" id="menu">
-        <a href="index.html">HOME</a>
-        <a href="works.html">WORKS</a>
-        <a href="shows.html">SHOWS</a>
-        <a href="bio.html">BIO</a>
-        <a href="contact.html">CONTACT</a>
+        <a href="index.html">Home</a>
+        <div
+          class="dropdown"
+          style="
+            color: black;
+            text-decoration: none;
+            font-family: BIO;
+            font-size: 18px;
+          "
+        >
+          Selected Artworks
+          <div class="dropdown-menu">
+            <a href="archive.html">Archive</a>
+            <a href="drawings.html"">Drawings</a>
+          </div>
+        </div>
+        <a href="shows.html">Shows</a>
+        <a href="bio.html">About</a>
+        <a href="contact.html" style="border-bottom: 1.5px solid black"
+          >Contact</a
+        >
       </div>
     </div>
-    <main>
-      <h1 class="page_title">CONTACT</h1>
-      <div class="social_media">
-        <div>
-          <a
-            href="https://www.instagram.com/mamulashvili.tatiaa/"
-            target="_blank"
-            ><img src="images/instagram.png" alt=""
-          /></a>
-        </div>
-        <div>
-          <a
-            href="https://www.linkedin.com/in/tatia-mamulashvili-447469168/"
-            target="_blank"
-            ><img src="images/linkedin.png" alt=""
-          /></a>
-        </div>
-        <div>
-          <a href="https://www.behance.net/TaMamulashvili" target="_blank"
-            ><img src="images/behance.png" alt=""
-          /></a>
-        </div>
-      </div>
-      <section class="contact">
-        <form
-          action="https://formspree.io/f/mldnopbj"
-          method="POST"
-          class="contact-form"
-        >
-          <label for="name" class="form-titles">Full Name</label>
-          <input type="text" id="name" name="name" required />
-
-          <label for="email" class="form-titles">Email</label>
-          <input type="email" id="email" name="email" required />
-
-          <label for="message" class="form-titles">Message</label>
-          <textarea id="message" name="message" rows="4" required></textarea>
-          <div class="submit">
-            <button type="submit" class="form-button">Submit</button>
+    <main style="display: flex; flex-direction: row; padding-top: 185px">
+      <div class="contact-left" style="width: 50%">
+        <h1 class="page_title_contact">CONTACT</h1>
+        <div class="social_media">
+          <div>
+            <a
+              href="https://www.instagram.com/mamulashvili.tatiaa/"
+              target="_blank"
+              ><img src="images/instagram.png" alt=""
+            /></a>
           </div>
-        </form>
-      </section>
+
+          <div>
+            <a href="https://www.behance.net/TaMamulashvili" target="_blank"
+              ><img src="images/behance.png" alt=""
+            /></a>
+          </div>
+          <div>
+            <a
+              href="https://www.linkedin.com/in/tatia-mamulashvili-447469168/"
+              target="_blank"
+              ><img src="images/linkedin.png" alt=""
+            /></a>
+          </div>
+        </div>
+        <section class="contact">
+          <form
+            action="https://formspree.io/f/mldnopbj"
+            method="POST"
+            class="contact-form"
+          >
+            <div>
+              <label for="name" class="form-titles">Full Name</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div>
+              <label for="email" class="form-titles">Email</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div>
+              <label for="message" class="form-titles">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                required
+              ></textarea>
+            </div>
+            <div class="submit">
+              <button type="submit" class="form-button">SUBMIT</button>
+            </div>
+          </form>
+        </section>
+      </div>
+      <div class="contact-right-img" style="width: 50%">
+        <img
+          style="
+            margin-left: -80px;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          "
+          src="images/contact.jpg"
+          alt=""
+        />
+      </div>
     </main>
-    <footer>
-      <a href="https://www.instagram.com/mamulashvili.tatiaa/" target="_blank"
-        ><img src="images/instagram.png" alt=""
-      /></a>
-      <a href="https://www.behance.net/TaMamulashvili" target="_blank"
-        ><img src="images/behance.png" alt=""
-      /></a>
-      <a
-        href="https://www.linkedin.com/in/tatia-mamulashvili-447469168/"
-        target="_blank"
-        ><img src="images/linkedin.png" alt=""
-      /></a>
-      <p></p>
+    <footer
+      style="
+        padding-top: 270px;
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 210px;
+      "
+    >
+      <div>
+        <a href="https://www.instagram.com/mamulashvili.tatiaa/" target="_blank"
+          ><img src="images/instagram.png" alt=""
+        /></a>
+        <a href="https://www.behance.net/TaMamulashvili" target="_blank"
+          ><img src="images/behance.png" alt=""
+        /></a>
+        <a
+          href="https://www.linkedin.com/in/tatia-mamulashvili-447469168/"
+          target="_blank"
+          ><img src="images/linkedin.png" alt=""
+        /></a>
+      </div>
       <p>© 2025 Tatia Mamulashvili</p>
     </footer>
     <script>

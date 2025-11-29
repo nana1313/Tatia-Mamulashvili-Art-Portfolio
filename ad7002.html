@@ -4,131 +4,280 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="images/favicon.png" type="image/png" />
     <meta charset="UTF-8" />
-    <title>GALLERY</title>
+    <title>Tatia Mamulashvili</title>
     <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
     <style>
-      .ad {
-        display: flex;
-        justify-content: flex-start;
-        gap: 15px;
-        padding-top: 40px;
-        padding-bottom: 40px;
-        flex-direction: column;
-        text-align: center;
+      .artworks-title {
+        font-family: futura-bold;
+        font-size: 23px;
+        padding-top: 95px;
+        padding-left: 80px;
+        padding-bottom: 16px;
+        letter-spacing: 2px;
       }
-      .ad-title {
-        font-family: main_title;
-        font-size: 26px;
-      }
-      .ad-desctiption {
-        font-family: main_title;
-      }
-      .ad-desctiption1 {
-        font-family: main_title;
-        font-size: 16px;
-      }
-      .ad-location {
-        font-family: main_title;
-        font-size: 14px;
-      }
-      .ad-paints {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-        max-width: auto;
+      .line {
+        width: 1535px;
+        height: 3px;
+        background-color: #d7d9db;
         margin: 0 auto;
-        padding-left: 57px;
-        padding-right: 57px;
+        padding-top: 3px;
       }
-      .ad-paints img {
-        width: 100%;
-        height: auto;
-        display: block;
+      .artworks-2025-title {
+        font-size: 23px;
+        font-family: futura-bold;
+        padding-left: 80px;
+        padding-top: 13px;
       }
-      .ad-item1 {
-        grid-column: span 2;
+      .ad-gallery {
+        padding-left: 80px;
+        padding-top: 85px;
+        padding-right: 80px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 სვეტი */
+        gap: 82px; /* მანძილი ფოტოებს შორის */
+        /* max-width: 1200px; */
+        margin: 0 auto;
+        justify-items: center;
+        padding-bottom: 130px;
       }
-      @media (max-width: 768px) {
-        .ad {
-          padding-top: 20px;
-        }
-        .ad-title {
-          font-size: 18px;
-          text-align: center;
-          padding-left: 10px;
-          padding-right: 10px;
-        }
-        .ad-desctiption1 {
-          font-size: 14px;
-          text-align: center;
-          padding-left: 10px;
-          padding-right: 10px;
-        }
-        .ad-paints {
-          padding-left: 15px;
-          padding-right: 15px;
-        }
+      .ad-art-horizontal {
+        width: 670px;
+      }
+      .ad-art-image-hor {
+        width: 670px;
+        cursor: pointer;
+      }
+      .mafa-art-image-ver {
+        width: 670px;
+        cursor: pointer;
+      }
+
+      /* modali */
+      .modal {
+        position: fixed;
+        inset: 0;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        background-color: white;
+      }
+
+      .modal img {
+        max-width: 95vw;
+        max-height: 95vh;
+        object-fit: contain;
+      }
+
+      /* X button */
+      .close {
+        position: absolute;
+        top: 25px;
+        right: 35px;
+        font-size: 40px;
+        color: white;
+        cursor: pointer;
+      }
+
+      /* Arrows */
+      .arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 50px;
+        color: white;
+        cursor: pointer;
+        user-select: none;
+        padding: 10px 20px;
+      }
+
+      .left {
+        left: 20px;
+      }
+
+      .right {
+        right: 20px;
+      }
+      .cross-close {
+        width: 40px;
+        border: none;
+        box-shadow: none;
+        outline: none;
+        background: transparent;
+      }
+      .left-arrow {
+        width: 40px;
+        background-color: transparent;
+      }
+      .right-arrow {
+        width: 40px;
+        background-color: transparent;
       }
     </style>
   </head>
   <body>
     <div class="nav">
       <div class="main_title">
-        <a href="index.html"><h1>TATIA&nbsp; MAMULASHVILI</h1></a>
+        <a href="index.html"
+          ><h1>
+            TATIA&nbsp; <br />
+            MAMULASHVILI
+          </h1></a
+        >
       </div>
       <div class="burger" onclick="toggleMenu()">☰</div>
       <div class="menu" id="menu">
-        <a href="index.html">HOME</a>
-        <a href="works.html">WORKS</a>
-        <a href="shows.html">SHOWS</a>
-        <a href="bio.html">BIO</a>
-        <a href="contact.html">CONTACT</a>
-      </div>
-    </div>
-    <div class="ad">
-      <div class="ad-title">
-        AD 7002, AVA Building, London/ United Kingdom 2025
-      </div>
-      <div class="ad-desctiption">
-        <div class="ad-desctiption1">
-          “Untitled” Installation views, various works on paper, fabric, wood
-          and canvas
+        <a href="index.html">Home</a>
+        <div
+          class="dropdown"
+          style="
+            color: black;
+            text-decoration: none;
+            font-family: BIO;
+            font-size: 18px;
+          "
+        >
+          Selected Artworks
+          <div class="dropdown-menu">
+            <a href="archive.html">Archive</a>
+            <a href="drawings.html">Drawings</a>
+          </div>
         </div>
+        <a href="shows.html" style="border-bottom: 1.5px solid black">Shows</a>
+        <a href="bio.html">About</a>
+        <a href="contact.html">Contact</a>
       </div>
     </div>
-    <div class="ad-paints">
-      <img class="ad-item1" src="images/ad/01 MTAVARIA.jpg" alt="" />
-      <img class="ad-item2" src="images/ad/02.jpg" alt="" />
-      <img class="ad-item3" src="images/ad/03.jpg" alt="" />
-      <img class="ad-item5" src="images/ad/05.jpg" alt="" />
-      <img class="ad-item6" src="images/ad/06.jpg" alt="" />
-      <img class="ad-item7" src="images/ad/07.jpg" alt="" />
-      <img class="ad-item8" src="images/ad/08.jpg" alt="" />
-      <img class="ad-item9" src="images/ad/09.jpg" alt="" />
-      <img class="ad-item11" src="images/ad/11.jpg" alt="" />
-      <img class="ad-item4" src="images/ad/04.jpg" alt="" />
-      <img class="ad-item10" src="images/ad/10.jpg" alt="" />
+
+    <p class="artworks-title">
+      AD 7002 I Way out East Gallery, London I May 2025
+    </p>
+    <div class="line"></div>
+    <p class="artworks-2025-title">
+      “Untitled” Installation views, various works on paper, fabric, wood, and
+      canvas
+    </p>
+    <div class="ad-gallery">
+      <div class="ad-art-horizontal">
+        <img class="ad-art-image-hor" src="images/ad/01 MTAVARIA.jpg" alt="" />
+      </div>
+      <div class="ad-art-horizontal">
+        <img class="ad-art-image-hor" src="images/ad/04.jpg" alt="" />
+      </div>
+      <div class="ad-art-horizontal">
+        <img class="ad-art-image-hor" src="images/ad/02.jpg" alt="" />
+      </div>
+      <div class="ad-art-horizontal">
+        <img class="ad-art-image-hor" src="images/ad/03.jpg" alt="" />
+      </div>
+      <div class="ad-art-horizontal">
+        <img class="ad-art-image-hor" src="images/ad/05.jpg" alt="" />
+      </div>
+      <div class="ad-art-horizontal">
+        <img class="ad-art-image-hor" src="images/ad/06.jpg" alt="" />
+      </div>
+      <div class="ad-art-horizontal">
+        <img class="ad-art-image-hor" src="images/ad/07.jpg" alt="" />
+      </div>
+      <div class="ad-art-horizontal">
+        <img class="ad-art-image-hor" src="images/ad/08.jpg" alt="" />
+      </div>
+      <div class="ad-art-horizontal">
+        <img class="ad-art-image-hor" src="images/ad/09.jpg" alt="" />
+      </div>
+      <div class="ad-art-horizontal">
+        <img class="ad-art-image-hor" src="images/ad/11.jpg" alt="" />
+      </div>
+      <div class="ad-art-horizontal">
+        <img class="ad-art-image-hor" src="images/ad/10.jpg" alt="" />
+      </div>
     </div>
-    <footer>
-      <a href="https://www.instagram.com/mamulashvili.tatiaa/" target="_blank"
-        ><img src="images/instagram.png" alt=""
-      /></a>
-      <a href="https://www.behance.net/TaMamulashvili" target="_blank"
-        ><img src="images/behance.png" alt=""
-      /></a>
-      <a
-        href="https://www.linkedin.com/in/tatia-mamulashvili-447469168/"
-        target="_blank"
-        ><img src="images/linkedin.png" alt=""
-      /></a>
-      <p></p>
-      <p>© 2025 Tatia Mamulashvili</p>
+    <div class="modal" id="modal">
+      <span class="close" id="modalClose"
+        ><img class="cross-close" src="images/cross-mark.png" alt=""
+      /></span>
+      <span class="arrow left" id="prev"
+        ><img class="left-arrow" src="images/left-arrow.png" alt=""
+      /></span>
+      <img id="modalImg" />
+      <span class="arrow right" id="next"
+        ><img class="right-arrow" src="images/right-arrow.png" alt=""
+      /></span>
+    </div>
+    <footer class="home-footer" style="margin-top: 200px">
+      <div>
+        <a href="https://www.instagram.com/mamulashvili.tatiaa/" target="_blank"
+          ><img src="images/instagram.png" alt=""
+        /></a>
+        <a href="https://www.behance.net/TaMamulashvili" target="_blank"
+          ><img src="images/behance.png" alt=""
+        /></a>
+        <a
+          href="https://www.linkedin.com/in/tatia-mamulashvili-447469168/"
+          target="_blank"
+          ><img src="images/linkedin.png" alt=""
+        /></a>
+      </div>
+      <div><p>© 2025 Tatia Mamulashvili</p></div>
     </footer>
     <script>
-      function toggleMenu() {
-        const menu = document.getElementById("menu");
-        menu.classList.toggle("active");
+      const images = document.querySelectorAll(".ad-gallery img");
+      const modal = document.getElementById("modal");
+      const modalImg = document.getElementById("modalImg");
+
+      const closeBtn = document.getElementById("modalClose");
+      const prevBtn = document.getElementById("prev");
+      const nextBtn = document.getElementById("next");
+
+      let index = 0;
+
+      /* OPEN MODAL */
+      images.forEach((img, i) => {
+        img.addEventListener("click", () => {
+          index = i;
+          modal.style.display = "flex";
+          showImage();
+        });
+      });
+
+      /* SHOW IMAGE */
+      function showImage() {
+        modalImg.src = images[index].src;
       }
+
+      /* NEXT */
+      nextBtn.addEventListener("click", () => {
+        index++;
+        if (index >= images.length) index = 0;
+        showImage();
+      });
+
+      /* PREV */
+      prevBtn.addEventListener("click", () => {
+        index--;
+        if (index < 0) index = images.length - 1;
+        showImage();
+      });
+
+      /* CLOSE */
+      closeBtn.addEventListener("click", () => {
+        modal.style.display = "none";
+      });
+
+      /* CLOSE ON BACKGROUND CLICK */
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) modal.style.display = "none";
+      });
+
+      /* KEYBOARD */
+      document.addEventListener("keydown", (e) => {
+        if (modal.style.display !== "flex") return;
+
+        if (e.key === "Escape") modal.style.display = "none";
+        if (e.key === "ArrowRight") nextBtn.click();
+        if (e.key === "ArrowLeft") prevBtn.click();
+      });
     </script>
   </body>
 </html>
