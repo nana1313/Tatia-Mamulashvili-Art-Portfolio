@@ -11,7 +11,7 @@
       .artworks-title {
         font-family: futura-bold;
         font-size: 23px;
-        padding-top: 95px;
+        padding-top: 240px;
         padding-left: 80px;
         padding-bottom: 16px;
         letter-spacing: 2px;
@@ -114,6 +114,47 @@
         width: 40px;
         background-color: transparent;
       }
+
+      @media (max-width: 768px) {
+        .artworks-title {
+          padding-top: 110px;
+          margin: 0 auto;
+          padding-left: 0px;
+          font-size: 16px;
+          text-align: center;
+        }
+        .artworks-2025-title {
+          margin: 0 auto;
+          padding-left: 0px;
+          font-size: 16px;
+          text-align: center;
+        }
+        .ad-gallery {
+          padding-left: 0px;
+          padding-top: 85px;
+          padding-right: 0px;
+          display: flex;
+          /* grid-template-columns: repeat(2, 1fr); 2 სვეტი */
+          gap: 82px; /* მანძილი ფოტოებს შორის */
+          /* max-width: 1200px; */
+          margin: 0 auto;
+          justify-items: center;
+          padding-bottom: 130px;
+          align-items: center;
+          flex-direction: column;
+        }
+        .ad-art-horizontal {
+          width: 380px;
+        }
+        .ad-art-image-hor,
+        .ad-art-image-ver {
+          width: 380px;
+          height: auto;
+        }
+        .modal {
+          display: none !important; /* ყველა შემთხვევაში დამალული იქნება */
+        }
+      }
     </style>
   </head>
   <body>
@@ -144,7 +185,7 @@
             <a href="drawings.html">Drawings</a>
           </div>
         </div>
-        <a href="shows.html" style="border-bottom: 1.5px solid black">Shows</a>
+        <a href="shows.html" style="text-decoration: underline">Shows</a>
         <a href="bio.html">About</a>
         <a href="contact.html">Contact</a>
       </div>
@@ -155,7 +196,7 @@
     </p>
     <div class="line"></div>
     <p class="artworks-2025-title">
-      “Untitled” Installation views, various works on paper, fabric, wood, and
+      'Untitled' Installation views, various works on paper, fabric, wood, and
       canvas
     </p>
     <div class="ad-gallery">
@@ -189,9 +230,9 @@
       <div class="ad-art-horizontal">
         <img class="ad-art-image-hor" src="images/ad/11.jpg" alt="" />
       </div>
-      <div class="ad-art-horizontal">
+      <!-- <div class="ad-art-horizontal">
         <img class="ad-art-image-hor" src="images/ad/10.jpg" alt="" />
-      </div>
+      </div> -->
     </div>
     <div class="modal" id="modal">
       <span class="close" id="modalClose"
@@ -277,6 +318,26 @@
         if (e.key === "Escape") modal.style.display = "none";
         if (e.key === "ArrowRight") nextBtn.click();
         if (e.key === "ArrowLeft") prevBtn.click();
+      });
+      document.addEventListener("DOMContentLoaded", () => {
+        const dropdown = document.querySelector(".dropdown");
+
+        dropdown.addEventListener("click", function (e) {
+          // თავიდან გამორთოს სხვა dropdown-ის ფერები თუ არის
+          this.classList.toggle("active");
+        });
+      });
+      function toggleMenu() {
+        const menu = document.getElementById("menu");
+        menu.classList.toggle("active");
+      }
+      document.addEventListener("DOMContentLoaded", () => {
+        const dropdown = document.querySelector(".dropdown");
+
+        dropdown.addEventListener("click", function (e) {
+          // თავიდან გამორთოს სხვა dropdown-ის ფერები თუ არის
+          this.classList.toggle("active");
+        });
       });
     </script>
   </body>

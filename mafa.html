@@ -11,7 +11,7 @@
       .artworks-title {
         font-family: futura-bold;
         font-size: 23px;
-        padding-top: 95px;
+        padding-top: 240px;
         padding-left: 80px;
         padding-bottom: 16px;
         letter-spacing: 2px;
@@ -115,6 +115,46 @@
         width: 40px;
         background-color: transparent;
       }
+      @media (max-width: 768px) {
+        .artworks-title {
+          padding-top: 110px;
+          margin: 0 auto;
+          padding-left: 0px;
+          font-size: 16px;
+          text-align: center;
+        }
+        .artworks-2025-title {
+          margin: 0 auto;
+          padding-left: 0px;
+          font-size: 16px;
+          text-align: center;
+        }
+        .mafa-gallery {
+          padding-left: 0px;
+          padding-top: 85px;
+          padding-right: 0px;
+          display: flex;
+          /* grid-template-columns: repeat(2, 1fr); 2 სვეტი */
+          gap: 82px; /* მანძილი ფოტოებს შორის */
+          /* max-width: 1200px; */
+          margin: 0 auto;
+          justify-items: center;
+          padding-bottom: 130px;
+          align-items: center;
+          flex-direction: column;
+        }
+        .mafa-art-horizontal {
+          width: 380px;
+        }
+        .mafa-art-image-hor,
+        .mafa-art-image-ver {
+          width: 380px;
+          height: auto;
+        }
+        .modal {
+          display: none !important; /* ყველა შემთხვევაში დამალული იქნება */
+        }
+      }
     </style>
   </head>
   <body>
@@ -145,7 +185,7 @@
             <a href="drawings.html">Drawings</a>
           </div>
         </div>
-        <a href="shows.html" style="border-bottom: 1.5px solid black">Shows</a>
+        <a href="shows.html" style="text-decoration: underline">Shows</a>
         <a href="bio.html">About</a>
         <a href="contact.html">Contact</a>
       </div>
@@ -156,7 +196,7 @@
     </p>
     <div class="line"></div>
     <p class="artworks-2025-title">
-      "Untitled" Installation views, various works on wood frames, paper,
+      'Untitled' Installation views, various works on wood frames, paper,
       fabric, wood, and canvas
     </p>
     <div class="mafa-gallery">
@@ -288,39 +328,43 @@
       const images = document.querySelectorAll(".mafa-gallery img");
       const modal = document.getElementById("modal");
       const modalImg = document.getElementById("modalImg");
-
       const closeBtn = document.getElementById("modalClose");
       const prevBtn = document.getElementById("prev");
       const nextBtn = document.getElementById("next");
 
       let index = 0;
 
-      /* OPEN MODAL */
-      images.forEach((img, i) => {
-        img.addEventListener("click", () => {
-          index = i;
-          modal.style.display = "flex";
-          showImage();
-        });
-      });
-
-      /* SHOW IMAGE */
-      function showImage() {
+      function openModal(i) {
+        modal.style.display = "flex";
+        index = i;
         modalImg.src = images[index].src;
       }
+
+      /* Attach click events only for desktop */
+      function attachImageEvents() {
+        images.forEach((img, i) => {
+          img.addEventListener("click", () => {
+            if (window.innerWidth <= 768) return; // MOBILE: do nothing
+            openModal(i);
+          });
+        });
+      }
+
+      /* Initial attach */
+      document.addEventListener("DOMContentLoaded", attachImageEvents);
 
       /* NEXT */
       nextBtn.addEventListener("click", () => {
         index++;
         if (index >= images.length) index = 0;
-        showImage();
+        modalImg.src = images[index].src;
       });
 
       /* PREV */
       prevBtn.addEventListener("click", () => {
         index--;
         if (index < 0) index = images.length - 1;
-        showImage();
+        modalImg.src = images[index].src;
       });
 
       /* CLOSE */
@@ -333,13 +377,26 @@
         if (e.target === modal) modal.style.display = "none";
       });
 
-      /* KEYBOARD */
+      /* KEYBOARD NAVIGATION ONLY DESKTOP */
       document.addEventListener("keydown", (e) => {
+        if (window.innerWidth <= 768) return; // MOBILE: ignore
         if (modal.style.display !== "flex") return;
 
         if (e.key === "Escape") modal.style.display = "none";
         if (e.key === "ArrowRight") nextBtn.click();
         if (e.key === "ArrowLeft") prevBtn.click();
+      });
+      function toggleMenu() {
+        const menu = document.getElementById("menu");
+        menu.classList.toggle("active");
+      }
+      document.addEventListener("DOMContentLoaded", () => {
+        const dropdown = document.querySelector(".dropdown");
+
+        dropdown.addEventListener("click", function (e) {
+          // თავიდან გამორთოს სხვა dropdown-ის ფერები თუ არის
+          this.classList.toggle("active");
+        });
       });
     </script>
   </body>

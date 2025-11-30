@@ -33,6 +33,23 @@
   cursor: pointer;
 }
 
+.nav {
+  position: absolute; /* ფოტო ზევიდან */
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 21px 77px;
+  box-sizing: border-box;
+  padding-top: 85px;
+  z-index: 10;
+}
+
+.dropdown.active {
+  text-decoration: none;
+}
 /* Dropdown menu */
 .dropdown-menu {
   position: absolute;
@@ -81,16 +98,6 @@ main {
   justify-content: flex-start;
 }
 
-.nav {
-  padding-left: 60px;
-  padding-right: 60px;
-  display: flex;
-  color: white;
-  align-items: center;
-  justify-content: space-between;
-  height: 60px;
-  border-bottom: 1px solid black;
-}
 .main-img {
   margin-left: -255px;
 }
@@ -115,9 +122,6 @@ main {
 .menu {
   gap: 29px;
   display: flex;
-}
-nav a:hover {
-  color: #ffa500;
 }
 
 .slider {
@@ -152,7 +156,7 @@ nav a:hover {
   align-items: flex-start;
   justify-content: center;
   padding-bottom: 70px;
-  margin-top: 110px;
+  margin-top: 260px;
 }
 .about img {
   width: 100%;
@@ -249,7 +253,7 @@ footer {
   border-top: none;
 }
 .home-footer {
-  margin-top: 1770px;
+  margin-top: 172px;
   display: flex;
   flex-direction: column;
   padding-bottom: 172px;
@@ -264,20 +268,6 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-}
-.nav {
-  position: relative;
-  width: 100%;
-  height: 60px;
-  color: white;
-  display: flex;
-  align-items: center;
-  padding: 0px 80px;
-  font-size: 20px;
-  z-index: 1000;
-  flex-shrink: 0;
-  border-bottom: none;
-  padding-top: 74px;
 }
 
 * {
@@ -319,7 +309,18 @@ header {
   color: black;
   z-index: 1100;
 }
+
 @media (max-width: 768px) {
+  .nav {
+    padding: 20px 29px;
+    padding-top: 20px;
+  }
+  .home-footer {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 140px;
+  }
   .full-image {
     height: auto; /* უნდა იყოს ფლექსის სიგრძე */
     min-height: calc(
@@ -351,9 +352,9 @@ header {
     padding: 10px 0;
     font-size: 16px;
   }
-  .menu a:hover {
+  /* .menu a:hover {
     color: #ddd;
-  }
+  } */
 
   .burger {
     display: block;
@@ -365,7 +366,8 @@ header {
   }
 
   .main_title h1 {
-    font-size: 18px;
+    font-size: 15px;
+    letter-spacing: 6px;
   }
 
   .full-image {
@@ -378,5 +380,37 @@ header {
   }
   .main_title {
     flex-grow: 1;
+  }
+
+  /* hover აღარ გამოვიყენოთ */
+  .dropdown:hover .dropdown-menu,
+  .dropdown-menu:hover {
+    display: none;
+  }
+
+  /* ახალი კლასი, რომელიც click-ის შემდეგ გამოაჩენს menu */
+  .dropdown.active .dropdown-menu {
+    display: block;
+    text-align: center;
+  }
+
+  .dropdown-menu {
+    position: relative; /* მობილურზე არ დასჭირდება absolute */
+    left: 0;
+    box-shadow: none;
+    opacity: 1;
+  }
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    color: black;
+    text-decoration: none;
+    font-family: BIO;
+    font-size: 18px;
+    cursor: pointer;
+    text-align: center;
+  }
+  .artworks-title {
+    padding-top: 110px;
   }
 }

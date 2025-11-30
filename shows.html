@@ -15,7 +15,7 @@
         height: 703px;
         align-items: center;
         gap: 50px;
-        padding-top: 165px;
+        padding-top: 370px;
       }
       .shows-list {
         text-align: right;
@@ -47,6 +47,7 @@
           height: auto; /* სიმაღლე ავტომატურად */
           gap: 20px;
           padding: 10px;
+          padding-top: 200px;
         }
         .shows-list {
           text-align: center;
@@ -103,7 +104,7 @@
             <a href="drawings.html">Drawings</a>
           </div>
         </div>
-        <a href="shows.html" style="border-bottom: 1.5px solid black">Shows</a>
+        <a href="shows.html" style="text-decoration: underline">Shows</a>
         <a href="bio.html">About</a>
         <a href="contact.html">Contact</a>
       </div>
@@ -139,6 +140,14 @@
         const menu = document.getElementById("menu");
         menu.classList.toggle("active");
       }
+      document.addEventListener("DOMContentLoaded", () => {
+        const dropdown = document.querySelector(".dropdown");
+
+        dropdown.addEventListener("click", function (e) {
+          // თავიდან გამორთოს სხვა dropdown-ის ფერები თუ არის
+          this.classList.toggle("active");
+        });
+      });
     </script>
   </body>
 </html>
