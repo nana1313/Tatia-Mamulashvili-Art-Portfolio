@@ -1,26 +1,32 @@
 @font-face {
   font-family: "main_title";
   src: url(fonts/Michroma-Regular.woff2)  format('woff2');
+  font-display: swap;
 }
 @font-face {
   font-family: "BIO";
   src: url(fonts/Newsreader_9pt-Regular.woff2)  format('woff2');
+  font-display: swap;
 }
 @font-face {
   font-family: "BIO-BOLD";
   src: url(fonts/Newsreader_9pt-Bold.woff2)  format('woff2') ;
+  font-display: swap;
 }
 @font-face {
   font-family: NAV;
   src: url(fonts//NAV.woff2)  format('woff2');
+  font-display: swap;
 }
 @font-face {
   font-family: "futura";
   src: url(fonts/futura.woff2)  format('woff2');
+  font-display: swap;
 }
 @font-face {
   font-family: "futura-bold";
   src: url(fonts/FuturaCyrillicBook.ttf)  format('woff2');
+  font-display: swap;
 }
 
 .dropdown {
