@@ -7,6 +7,12 @@
     <title>CONTACT</title>
     <link rel="stylesheet" href="style.css?v=2" />
     <style>
+      .contact-left {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
       .contact-form {
         gap: 30px;
         display: flex;
@@ -72,7 +78,19 @@
           width: 50%;
         }
         @media screen and (max-width: 768px) {
-          .contact-main{
+        .contact-form {
+          gap: 30px;
+          display: flex;
+          flex-direction: column;
+          max-width: 500px;
+          margin: 60px auto;
+          font-family: sans-serif;
+          align-items: center;
+        }
+        .contact-left{
+          align-items: center;
+        }
+        .contact-main{
           display: flex; 
           flex-direction: column;
           padding-top: 260px;
@@ -86,20 +104,21 @@
           width: 380px;
             height: auto;
             object-fit: cover;
+            margin: 0
             /* margin: 0 auto; */
         }
         .contact-right-img{
           width: 380px;
         }
         }
-      }
+      
     </style>
   </head>
   <body style="background-color: white">
     <div class="nav">
       <div class="main_title">
         <a href="index.html"
-          ><h1 style="font-size: 32px; letter-spacing: 9px">
+          ><h1 >
             TATIA&nbsp; <br />MAMULASHVILI
           </h1></a
         >

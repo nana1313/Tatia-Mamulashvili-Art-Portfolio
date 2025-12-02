@@ -41,7 +41,7 @@
         width: 470px;
         height: 620px;
       }
-      @media (max-width: 900px) {
+      @media (max-width: 768px) {
         .shows {
           flex-direction: column;
           height: auto; /* სიმაღლე ავტომატურად */
@@ -66,8 +66,12 @@
           height: auto;
           max-width: 470px; /* მაქსიმალური სიგანე */
         }
-      }
-      @media (max-width: 480px) {
+        .contact-left{
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
         .shows-list h3 {
           font-size: 18px;
         }
@@ -75,13 +79,14 @@
           font-size: 16px;
         }
       }
+      
     </style>
   </head>
   <body>
     <div class="nav">
       <div class="main_title">
         <a href="index.html"
-          ><h1 style="font-size: 32px; letter-spacing: 9px">
+          ><h1 >
             TATIA&nbsp; <br />MAMULASHVILI
           </h1></a
         >
