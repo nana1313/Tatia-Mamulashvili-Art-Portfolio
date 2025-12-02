@@ -1,22 +1,22 @@
 @font-face {
   font-family: "main_title";
-  src: url(fonts/Michroma-Regular.ttf);
+  src: url(fonts/Michroma-Regular.woff2);
 }
 @font-face {
   font-family: "BIO";
-  src: url(fonts/Newsreader_9pt-Regular.ttf);
+  src: url(fonts/Newsreader_9pt-Regular.woff2);
 }
 @font-face {
   font-family: "BIO-BOLD";
-  src: url(fonts/Newsreader_9pt-Bold.ttf);
+  src: url(fonts/Newsreader_9pt-Bold.woff2);
 }
 @font-face {
   font-family: NAV;
-  src: url(fonts/NAV.ttf);
+  src: url(fonts//NAV.woff2);
 }
 @font-face {
   font-family: "futura";
-  src: url(fonts/futura.ttf);
+  src: url(fonts/futura.woff2);
 }
 @font-face {
   font-family: "futura-bold";
