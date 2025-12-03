@@ -128,10 +128,6 @@
           display: flex;
           grid-template-columns: repeat(2, 1fr);
           gap: 82px;
-          /* max-width: 1200px; */
-          /* margin: 0 auto; */
-          /* justify-items: center; */
-          /* padding-bottom: 130px; */
           flex-direction: column;
           align-items: center;
         }
@@ -147,38 +143,9 @@
           height: 95vh;
           object-fit: contain;
         }
-        /* .right-arrow,
-        .left-arrow {
-          width: 10px;
-          background-color: transparent;
-        } */
         .modal {
-          display: none !important; /* ყველა შემთხვევაში დამალული იქნება */
+          display: none !important;
         }
-
-        /* IMAGE */
-        /* #modalImg {
-          width: 380px;
-          max-width: 100%;
-          height: auto;
-          max-height: none;
-          object-fit: contain;
-        } */
-        /* .left {
-          left: 175px;
-        }
-
-        .right {
-          right: 175px;
-        } */
-
-        /* ARROWS */
-        /* .left-arrow,
-        .right-arrow {
-          width: 10px;
-        }
-
-        /* CLOSE BUTTON */
         .cross-close {
           width: 10px;
         }
@@ -186,7 +153,7 @@
         .close {
           top: 12px;
           right: 12px;
-        } */
+        }
       }
     </style>
   </head>
@@ -194,10 +161,10 @@
     <div class="nav">
       <div class="main_title">
         <a href="index.html"
-          ><h1>
+          ><p>
             TATIA&nbsp; <br />
             MAMULASHVILI
-          </h1></a
+          </p></a
         >
       </div>
       <div class="burger" onclick="toggleMenu()">☰</div>
