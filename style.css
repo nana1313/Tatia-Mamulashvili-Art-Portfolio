@@ -29,6 +29,9 @@
   font-display: swap;
 }
 
+html, body {
+  overflow-x: hidden;
+}
 .dropdown {
   position: relative;
   display: inline-block;
@@ -113,8 +116,8 @@ main {
   font-family: futura-bold;
 }
 .main_title p {
-  font-size: 17px;
-    letter-spacing: 4px;
+  font-size: 28px;
+    letter-spacing: 9px;
 }
 .menu a {
   color: black;
@@ -366,9 +369,9 @@ header {
     margin-left: auto;
   }
 
-  .main_title h1 {
-    font-size: 15px;
-    letter-spacing: 6px;
+  .main_title p {
+    font-size: 17px;
+    letter-spacing: 4px;
   }
 
   .full-image {
